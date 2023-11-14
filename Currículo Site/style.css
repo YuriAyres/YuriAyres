@@ -1,0 +1,537 @@
+/* Reset de estilos e fonte personalizada */
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'octopus';
+}
+
+body{
+  overflow: hidden;
+}
+
+
+/* Container para conter o conteúdo do site */
+.container {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+/* Estilos gerais do site */
+.box-degrade {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background-image: linear-gradient(45deg, rgb(87, 117, 144), rgb(215, 138, 118), rgb(87, 117, 144));
+  background-size: 1000% 200%;
+  animation: animated-degrade 8s infinite alternate-reverse;
+  z-index: -1000;
+}
+
+/* Animação do fundo gradiente */
+@keyframes animated-degrade {
+  0% {
+      background-position-x: 0%;
+  }
+  100% {
+      background-position-x: 100%;
+  }
+}
+
+/* Fonte personalizada 'octopus' */
+@font-face {
+  font-family: octopus;
+  src: url('fonts/Octopus Game.otf') format('opentype'),
+       url('fonts/Octopus Game.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Estilos do nome no cabeçalho */
+.name {
+  background-image: linear-gradient(45deg, rgb(243, 202, 64), rgb(240, 138, 75));
+  background-size: 500% 100%;
+  animation: animated-degrade 8s infinite alternate;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 55px;
+}
+
+/* Estilos da navegação no cabeçalho */
+.nav-menu a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  color: hsl(0, 0%, 100%);
+  font-size: 0, 10px;
+  font-weight: 400;
+  text-decoration: none;
+}
+
+.nav-menu li+li {
+  margin-left: 30px;
+}
+
+.nav-menu ul {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+li {
+  display: list-item;
+  text-align: -webkit-match-parent;
+}
+
+.nav-menu a:before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background-color: rgb(243, 202, 64);
+  visibility: hidden;
+  width: 0px;
+  transition: all 0.3s ease-in-out 0s;
+}
+
+.nav-menu a:hover:before,
+.nav-menu li:hover>a:before,
+.nav-menu .active>a:before {
+  visibility: visible;
+  width: 25px;
+}
+
+.menu-mobile{
+  text-align: center;
+}
+
+.menu-mobile li a {
+  text-decoration: none; /* Remover sublinhado padrão dos links */
+  color: #fff; /* Cor do texto */
+  transition: font-size 0.3s; /* Adicionar uma transição suave de tamanho */
+}
+
+.menu-mobile li.active a {
+  color: rgb(240, 138, 75); /* Cor do texto para o item ativo */
+}
+
+/* Alterar o tamanho do texto quando o mouse passa sobre o link */
+.menu-mobile li a:hover {
+    font-size: 1.2em; /* Ajuste o tamanho conforme necessário */
+}
+
+/* Estilos das seções */
+section {
+  overflow: hidden;
+  position: absolute;
+  width: 100%;
+  top: 140px;
+  bottom: 100%;
+  opacity: 0;
+  z-index: 2;
+  transition: all 0.3s ease-in-out;
+}
+
+section.section-show {
+  top: 140px;
+  bottom: auto;
+  opacity: 1;
+  padding-bottom: 0px;
+  transition: all 0.3s ease-in-out;
+}
+
+
+/* Estilos do cabeçalho no topo */
+#header.header-top {
+  height: 100px;
+  position: absolute;
+  left: 0px;
+  top: 0;
+  right: 0;
+  border-bottom: 3px solid transparent rgb(242, 165, 65);
+  background: linear-gradient(to top , rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.300));
+}
+
+#header.header-top .social-links, #header.header-top h2 {
+  display: none;
+}
+
+#header.header-top .name {
+  margin: 5vw;
+  margin-right: 3vw;
+  font-size: 40px;
+}
+
+#header.header-top .container {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+#header.header-top .nav-menu {
+  margin: 0;
+  margin-right: 5vw;
+}
+
+@media (max-width: 1386px) {
+  #header.header-top {
+      height: 60px;
+  }
+  #header.header-top .name {
+      font-size: 26px;
+  }
+}
+
+/* Botão de navegação móvel */
+.mobile-nav-toggle {
+  position: fixed;
+  right: 15px;
+  top: 15px;
+  z-index: 9998;
+  border: 0;
+  background: none;
+  font-size: 24px;
+  transition: all 0.4s;
+  outline: none !important;
+  line-height: 1;
+  cursor: pointer;
+  text-align: right;
+}
+
+.mobile-nav-toggle i {
+  color: rgb(242, 165, 65);
+}
+
+
+/* Navegação móvel */
+.mobile-nav {
+  position: fixed;
+  top: 55px;
+  right: 15px;
+  bottom: 15px;
+  left: 15px;
+  z-index: 9999;
+  overflow-y: auto;
+  background: rgba(0, 0, 0, 0.7);
+  transition: ease-in-out 0s;
+  visibility: hidden;
+  opacity: 1;
+  border-radius: 10px;
+  padding: 10px 0;
+}
+
+.mobile-nav.visible {
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+
+/* Estilos gerais */
+
+/* Estilos para telas menores que 768px de largura (dispositivos móveis) */
+@media (max-width: 768px) {
+  /* Estilos específicos para telas menores */
+  .name {
+      font-size: 36px; /* Tamanho do nome menor */
+  }
+  .nav-menu {
+      display: none; /* Ocultar o menu de navegação na tela pequena */
+  }
+  /* Adicione estilos adicionais para telas menores conforme necessário */
+}
+
+/* Estilos para telas entre 769px e 1024px de largura (tablets) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  /* Estilos específicos para telas de tamanho médio */
+  .name {
+      font-size: 40px; /* Tamanho do nome um pouco maior */
+  }
+  /* Adicione estilos adicionais para telas de tamanho médio conforme necessário */
+}
+
+/* Estilos do ícone do menu (hamburguer) */
+.menu-icon {
+  display: none; /* Inicialmente oculto em telas maiores */
+  cursor: pointer;
+}
+
+.bar {
+  width: 30px;
+  height: 3px;
+  background-color: rgb(242, 165, 65); /* Cor das linhas do ícone */
+  margin: 6px 0;
+}
+
+
+/* Estilos para telas menores (mostrar o ícone e ocultar o menu de navegação) */
+@media (max-width: 1200px) {
+  .menu-icon {
+      display: block;
+  }
+
+  .nav-menu {
+      display: none; /* Ocultar o menu de navegação */
+  }
+}
+
+/* Estilos para as imagens de habilidades */
+.skill-image {
+  max-width: 200px; /* Defina o tamanho máximo desejado para as imagens */
+  max-height: 76px; /* Defina o tamanho máximo desejado para as imagens */
+}
+
+.card {
+  position: relative;
+  overflow: hidden;
+  margin: 0.5rem 0 1rem 0;
+  background-color: #ffffff0c;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  background-clip: padding-box;
+  max-width: 750px; /* Defina o tamanho máximo desejado para o card */
+  margin: 0 auto; /* Centralize o card horizontalmente usando margens automáticas */
+  padding: 20px; /* Adicione algum espaço interno (padding) ao card, se necessário */
+  border-bottom: 3px solid transparent rgb(242, 165, 65);
+  background: linear-gradient(to top , rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.171));
+}
+
+
+.row .col {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 0 1rem;
+  margin: 2rem 1rem;
+}
+
+
+.title {
+  font-size: 25px;
+  color: rgb(242, 165, 65);
+}
+
+#skills h4 {
+  border-bottom: 2px solid rgb(242, 165, 65);
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+}
+
+.card-text{
+  font-size: 20px;
+  color: white;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 500;
+}
+
+.contacts{
+  align-items: center;
+  justify-content: center;
+  width: auto;
+}
+
+.linha {
+  display: flex;
+}
+
+.retangulo {
+  text-align: center;
+  padding: 25px;
+  width: 400px;
+  height: 150px;
+  margin: 10px; /* Espaçamento entre os retângulos */
+  background-color: rgba(0, 0, 0, 0.171); /* Cor de fundo dos retângulos */
+}
+
+.retangulo2 {
+  text-align: right;
+  padding: 25px;
+  width: 400px;
+  height: 125px;
+  margin: 10px; /* Espaçamento entre os retângulos */
+  background-color: rgba(0, 0, 0, 0.171); /* Cor de fundo dos retângulos */
+}
+
+.icon{
+  color: #dee2e6;
+  border-radius: 100%;
+  padding: 15px;
+  float: left;
+  background: rgb(242, 165, 65);
+  max-height: 25px;
+}
+
+.icon2{
+  color: #dee2e6;
+  border-radius: 100%;
+  padding: 5px;
+  float: left;
+  background: rgb(87, 117, 144);
+  max-height: 25px;
+}
+
+h3{
+  font-size: 24px;
+  color:rgb(242, 165, 65);
+}
+
+p{
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: white;
+  font-weight: 500;
+}
+
+.text-contact{
+  text-align: left;
+  margin: 10px 100px 10px 65px;
+}
+
+.text-contact2{
+  text-align: left;
+}
+
+.social_media{
+  display: inline-flex;
+  padding: 10px;
+}
+
+.social-text{
+  padding: 10px;
+}
+
+.experience{
+  align-items: center;
+  justify-content: center;
+  width: auto;
+}
+
+.retangulo3 {
+  text-align: left;
+  padding: 25px;
+  width: 700px;
+  height: 250px;
+  margin: 10px; /* Espaçamento entre os retângulos */
+  background-color: rgba(0, 0, 0, 0.171); /* Cor de fundo dos retângulos */
+}
+
+.title2{
+  font-size: 25px;
+  color: rgb(242, 165, 65);
+}
+
+.header_experience{
+  border-bottom: 2px solid rgb(242, 165, 65);
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+}
+
+.data{
+  font-size: 20px;
+  color: rgb(0, 0, 0);
+}
+
+.education{
+  align-items: center;
+  justify-content: center;
+  width: auto;
+}
+
+.header_education{
+  border-bottom: 2px solid rgb(242, 165, 65);
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  display: inline;
+  text-align: right;
+}
+
+.education-image {
+  max-width: 200px; /* Defina o tamanho máximo desejado para as imagens */
+  max-height: 76px; /* Defina o tamanho máximo desejado para as imagens */
+}
+
+.retangulo4 {
+  padding: 25px;
+  width: 700px;
+  height: 250px;
+  margin: 10px; /* Espaçamento entre os retângulos */
+  background-color: rgba(0, 0, 0, 0.171); /* Cor de fundo dos retângulos */
+}
+
+.list_work{
+  padding-top: 10px;
+  padding-left: 25px;
+  text-align: left;
+  
+}
+
+.list_text{
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: white;
+  font-weight: 500;
+}
+
+.portfolio{
+  align-items: center;
+  justify-content: center;
+  width: auto;
+}
+
+.link_portfolio{
+  color: rgb(242, 165, 65);
+  text-decoration: none;
+}
+
+.about{
+  align-items: center;
+  justify-content: center;
+  width: auto;
+}
+
+.photo{
+  max-width: 400px;
+  border-radius: 10px;
+  box-shadow: 10px 15px 25px rgba(0, 0, 0, 0.767);
+  border: 10px solid rgba(0, 0, 0, 0.171);
+}
+
+.about_container{
+  display: flex;
+}
+
+.about_text{
+  padding-top: 50px;
+  padding-left: 50px;
+  font-size: 25px;
+  width: 700px;
+  text-align: left;
+  display: block;
+  box-sizing: border-box;
+}
+
+.list_about{
+  list-style: none;
+  padding-top: 50px;
+  color: rgb(242, 165, 65);
+}
+
+@media (max-height: 1000px) {
+
+  body{
+    overflow: visible;
+  }
+
+}
