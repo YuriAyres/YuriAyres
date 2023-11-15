@@ -579,4 +579,12 @@ p{
     max-height: 15px;
   }
 
+  .retangulo {
+    width: 40vw;
+  }
+  
+  .retangulo2 { 
+    width: 40vw; 
+  }
+
 }
