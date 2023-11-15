@@ -351,8 +351,8 @@ section.section-show {
 .retangulo {
   text-align: center;
   padding: 25px;
-  width: 400px;
-  height: 150px;
+  width: 20.8vw;
+  min-height: 150px;
   margin: 10px; /* Espaçamento entre os retângulos */
   background-color: rgba(0, 0, 0, 0.171); /* Cor de fundo dos retângulos */
 }
@@ -360,8 +360,8 @@ section.section-show {
 .retangulo2 {
   text-align: right;
   padding: 25px;
-  width: 400px;
-  height: 125px;
+  width: 20.8vw;
+  min-height: 125px;
   margin: 10px; /* Espaçamento entre os retângulos */
   background-color: rgba(0, 0, 0, 0.171); /* Cor de fundo dos retângulos */
 }
@@ -422,8 +422,8 @@ p{
 .retangulo3 {
   text-align: left;
   padding: 25px;
-  width: 700px;
-  height: 250px;
+  width: 40vw;
+  min-height: 250px;
   margin: 10px; /* Espaçamento entre os retângulos */
   background-color: rgba(0, 0, 0, 0.171); /* Cor de fundo dos retângulos */
 }
@@ -451,11 +451,14 @@ p{
 }
 
 .header_education{
+  width: 100%;
   border-bottom: 2px solid rgb(242, 165, 65);
   margin-bottom: 30px;
   padding-bottom: 20px;
-  display: inline;
   text-align: right;
+  display: inline-flex;
+  justify-content: space-between;
+  
 }
 
 .education-image {
@@ -465,8 +468,8 @@ p{
 
 .retangulo4 {
   padding: 25px;
-  width: 700px;
-  height: 250px;
+  width: 40vw;
+  min-height: 250px;
   margin: 10px; /* Espaçamento entre os retângulos */
   background-color: rgba(0, 0, 0, 0.171); /* Cor de fundo dos retângulos */
 }
@@ -502,7 +505,7 @@ p{
 }
 
 .photo{
-  max-width: 400px;
+  max-width: 20vw;
   border-radius: 10px;
   box-shadow: 10px 15px 25px rgba(0, 0, 0, 0.767);
   border: 10px solid rgba(0, 0, 0, 0.171);
@@ -516,10 +519,11 @@ p{
   padding-top: 50px;
   padding-left: 50px;
   font-size: 25px;
-  width: 700px;
+  width: 40vw;
   text-align: left;
   display: block;
   box-sizing: border-box;
+  padding-bottom: 50px;
 }
 
 .list_about{
@@ -530,8 +534,49 @@ p{
 
 @media (max-height: 1000px) {
 
-  body{
-    overflow: visible;
+  body {
+    overflow-x: hidden; /* Para o eixo horizontal */
+    overflow-y: auto;   /* Para o eixo vertical */
+  }
+
+}
+
+@media (max-width: 1000px ) {
+
+  .about_text{
+    padding-top: 50px;
+    padding-left: 50px;
+    font-size: 15px;
+    width: 40vw;
+    text-align: left;
+    display: block;
+    box-sizing: border-box;
+  }
+
+  .education-image {
+    max-width: 100px; /* Defina o tamanho máximo desejado para as imagens */
+    max-height: 38px; /* Defina o tamanho máximo desejado para as imagens */
+  }
+
+  .data{
+    font-size: 15px;
+    color: rgb(0, 0, 0);
+  }
+
+  .contacts h3{
+    font-size: 15px;
+  }
+
+  .contacts p{
+    font-size: 10px;
+  }
+
+  .linha {
+    display: block;
+  }
+
+  .icon{
+    max-height: 15px;
   }
 
 }
