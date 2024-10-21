@@ -1,0 +1,35 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+
+  @font-face {
+    font-family: octopus;
+    src: url('assets/fonts/Octopus Game.otf') format('opentype'),
+         url('assets/fonts/Octopus Game.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  .video-background {
+    overflow: hidden;
+  }
+  
+  .video-background video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+  }
+
+body{
+    background-image: linear-gradient(to bottom, #200933 75%, #3d0b43);
+    background-size: auto 100vh;
+}
+
+
+

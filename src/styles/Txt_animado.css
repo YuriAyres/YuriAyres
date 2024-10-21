@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Krona+One&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+.intro {
+    position:absolute;
+    width: 100%;
+    margin-top: 200px;
+    font-size: 24px;
+    font-family: "Montserrat", system-ui;
+    font-weight: 200;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+.texto-animado span{
+    position: relative;
+}
+
+.texto-animado span::before{
+    content: "";
+    color: whitesmoke;
+    animation: intro 5s infinite;
+}
+
+.texto-animado span::after{
+    content: "";
+    position: absolute;
+    height: 100%;
+    border-left: 2px solid whitesmoke;
+    right: -10px;
+    opacity: 1;
+    animation: cursor .8s infinite, digita 20s steps(40) infinite;
+    width: calc(100% + 8px);
+    background-color: #200933;
+
+}
+
+@keyframes digita {
+    10%, 15%, 30%, 35%, 50%, 55%, 70%, 75%, 90%, 95%{
+        width: 0;
+    }
+}
+
+@keyframes cursor {
+    0%{
+        border-left: 2px solid #200933;
+    }
+}
+
+@keyframes intro {
+0%, 100%{
+    content: "Olá! Clique no botão para ir para o portfólio...";
+}
+}
+
+@media screen and (max-width: 768px) {
+
+    .intro {
+        font-size: 16px;
+    }
+
+    @media screen and (max-width: 380px){
+        .intro {
+            font-size: 14px;
+        }
+    }
+}

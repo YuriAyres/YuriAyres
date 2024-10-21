@@ -1,0 +1,1126 @@
+@import url('https://fonts.googleapis.com/css2?family=Italianno&family=Krona+One&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nothing+You+Could+Do&display=swap');
+
+@keyframes animated-degrade {
+  0% {
+    background-position-x: 0%;
+  }
+
+  100% {
+    background-position-x: 100%;
+  }
+}
+
+.body-2 {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #200933;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+}
+
+.menu-container {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  height: 90vh;
+  padding-top: 10vh;
+}
+
+.flex {
+  display: flex;
+  z-index: 2;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+  width: 65%;
+  justify-content: space-between;
+
+}
+
+
+.center {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: max-content;
+}
+
+.perfil {
+  display: flex;
+  margin-left: 39px;
+  margin-top: 39px;
+  width: 316px;
+  height: 318px;
+}
+
+.foto_perfil {
+  z-index: 3;
+  width: 207px;
+  height: 207px;
+}
+
+.retangulo_redes_sociais {
+  margin-left: 85px;
+  margin-top: 127px;
+  position: absolute;
+}
+
+.retangulo_redes_sociais_div {
+  display: flex;
+  z-index: 4;
+  position: absolute;
+  margin-top: -90px;
+  margin-left: 80px;
+  justify-content: space-between;
+  width: 106px;
+}
+
+.icon-perfil {
+  width: 48px;
+  height: 48px;
+}
+
+.icon-perfil:hover {
+  width: 55px;
+  height: 55px;
+}
+
+.nome_div {
+  margin-top: 240px;
+  position: absolute;
+  width: 320px;
+
+}
+
+.nome {
+  font-family: "octopus";
+  font-size: 40px;
+  font-weight: 500;
+  font-style: normal;
+  text-align: left;
+  color: white;
+  text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
+}
+
+.espaco {
+  font-family: "Italianno", cursive;
+  margin-left: 200px;
+  font-weight: 600;
+  margin-top: -20px;
+}
+
+
+.titulo_pagina {
+  height: 132px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.titulo {
+  font-family: "Krona One", system-ui;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 36px;
+  color: #f6f6f6;
+}
+
+.subtitulo {
+  font-family: "Montserrat", system-ui;
+  font-weight: 200;
+  font-style: normal;
+  font-size: 24px;
+  color: #f6f6f6;
+}
+
+.div-sub {
+  display: flex;
+  align-items: center;
+  min-width: 580px;
+}
+
+.div-sub-2 {
+  display: flex;
+  align-items: center;
+  margin-right: 48px;
+  min-width: 525px;
+}
+
+.icon-flecha {
+  width: 48px;
+  height: 48px;
+}
+
+.icon-flecha2 {
+  transform: rotate(180deg);
+  width: 48px;
+  height: 48px;
+}
+
+.icon-flecha3 {
+  transform: rotate(180deg);
+  width: 48px;
+  height: 48px;
+}
+
+.habilidades {
+  margin-top: 195px;
+  width: 200px;
+  height: 440px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin-right: 32px;
+}
+
+.habilidades button {
+  width: 175px;
+  height: 75px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: "Montserrat", system-ui;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 16px;
+
+}
+
+
+.habilidades button.active {
+  width: 200px;
+  height: 100px;
+  background: linear-gradient(darkblue 0%, #5b0564 100%);
+  color: white;
+  text-shadow: 0 0 15px white;
+  font-size: 20px;
+  filter: drop-shadow(10px 8px 2px RGB(0, 0, 0, 1));
+}
+
+.habilidades button.active:hover {
+  background-color: #420449;
+}
+
+.habilidades button:not(.active) {
+  background-color: RGB(255, 255, 255, 0.06);
+  color: white;
+  filter: blur(1.5px);
+}
+
+.habilidades button:not(.active):hover {
+  background-color: RGB(255, 255, 255, 0.2);
+}
+
+.habilidades-card-background {
+  background-color: white;
+  width: 278px;
+  height: 100vh;
+}
+
+.habilidades-card {
+  display: flex;
+  flex-direction: column;
+  row-gap: 64px;
+  margin-top: 64px;
+  margin-left: 30px;
+  height: 704px;
+  width: 248px;
+  font-family: "Montserrat", system-ui;
+  opacity: 0;
+}
+
+.habilidades-card-active {
+  opacity: 1;
+}
+
+.fade-enter {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.fade-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 500ms ease, transform 500ms ease;
+}
+
+.fade-exit {
+  opacity: 1;
+  transform: translateY(0px);
+}
+
+.fade-exit-active {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 500ms ease, transform 500ms ease;
+}
+
+.icon-size {
+  width: 64px;
+  height: 64px;
+}
+
+.habilidades-div {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  font-size: 14px;
+}
+
+.projetos-card {
+  background-color: white;
+  width: 413px;
+  height: 450px;
+  border-radius: 0 206px 0 0;
+
+}
+
+.projetos-card p {
+  font-size: 20px;
+  color: #000000;
+  font-family: "Montserrat", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.projetos-div {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+}
+
+.repo-card {
+  padding-right: 10px;
+  margin-right: 15px;
+  padding-left: 10px;
+  margin-left: 15px;
+  margin-top: 75px;
+  text-align: center;
+}
+
+.repo-image {
+  width: 250px;
+  height: 150px;
+}
+
+.repo-card h3 {
+  margin: 10px 0;
+  font-family: "Krona One", system-ui;
+  font-weight: 400;
+  font-style: normal;
+  color: #3d0b43;
+}
+
+.repo-card p {
+  font-size: 14px;
+  color: #3d0b43;
+  font-family: "Montserrat", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.repo-card a {
+  display: inline-block;
+  margin-top: 10px;
+  color: #7118cf;
+  font-family: "Montserrat", system-ui;
+  font-weight: 600;
+  font-style: normal;
+  text-decoration: none;
+}
+
+.repo-card a:hover {
+  color: #7018cf7e;
+}
+
+.repo-navigation {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+  margin-left: 45px;
+  margin-right: 45px;
+
+}
+
+
+.repo-button {
+  background-color: #5b0564;
+  border-radius: 10px;
+  border: none;
+}
+
+.repo-button:hover {
+  background-color: #5a05649d;
+}
+
+.repo-button:active {
+  border-radius: 30px;
+}
+
+.repo-fade-backward-exit {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 25%;
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.repo-fade-backward-exit-active {
+  opacity: 0;
+  transform: translateX(-100px);
+  /* Sai para a esquerda */
+  transition: opacity 500ms ease, transform 500ms ease;
+}
+
+/* Animação de entrada para a direita (navegando para trás) */
+.repo-fade-backward-enter {
+  z-index: 7;
+  opacity: 0;
+  transform: translateX(100px);
+  /* Vem da direita */
+}
+
+.repo-fade-backward-enter-active {
+  z-index: 7;
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity 500ms ease, transform 500ms ease;
+}
+
+/* Animação de saída para a direita (navegando para frente) */
+.repo-fade-forward-exit {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 25%;
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.repo-fade-forward-exit-active {
+  opacity: 0;
+  transform: translateX(100px);
+  /* Sai para a direita */
+  transition: opacity 500ms ease, transform 500ms ease;
+}
+
+/* Animação de entrada para a esquerda (navegando para frente) */
+.repo-fade-forward-enter {
+  z-index: 7;
+  opacity: 0;
+  transform: translateX(-100px);
+  /* Vem da esquerda */
+}
+
+.repo-fade-forward-enter-active {
+  z-index: 7;
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity 500ms ease, transform 500ms ease;
+}
+
+.elipse {
+  display: none;
+}
+
+@media screen and (min-width: 1024px) and (max-width: 1615px) {
+
+  @media screen and (max-height: 720px) {
+    .fade-exit {
+      transform: translateY(-40px);
+    }
+
+    .fade-exit-active {
+      transform: translateY(20px);
+    }
+
+  }
+
+  .flex-column {
+    width: 65%;
+  }
+
+  .center {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: max-content;
+  }
+
+  .perfil {
+    margin-left: 20px;
+    margin-top: 20px;
+    width: 316px;
+    height: 318px;
+  }
+
+  .foto_perfil {
+    width: 180px;
+    height: 180px;
+  }
+
+  .retangulo_redes_sociais {
+    width: 201px;
+    height: 112px;
+    margin-left: 70px;
+    margin-top: 117px;
+  }
+
+  .retangulo_1 {
+    width: 201px;
+    height: 112px;
+  }
+
+  .retangulo_redes_sociais_div {
+    margin-top: -82px;
+    margin-left: 60px;
+    width: 100px;
+  }
+
+  .icon-perfil {
+    width: 44px;
+    height: 44px;
+  }
+
+  .icon-perfil:hover {
+    width: 50px;
+    height: 50px;
+  }
+
+  .nome_div {
+    margin-top: 240px;
+    position: absolute;
+    width: 320px;
+
+  }
+
+  .nome {
+    font-size: 36px;
+  }
+
+  .espaco {
+    margin-left: 180px;
+  }
+
+  .titulo_pagina {
+    text-align: center;
+  }
+
+  .titulo {
+    font-size: 32px;
+    text-align: center;
+  }
+
+  .subtitulo {
+    font-size: 21px;
+  }
+
+  .habilidades {
+    margin-top: 195px;
+    width: 180px;
+    height: 440px;
+    margin-right: 20px;
+  }
+
+  .habilidades button {
+    width: 150px;
+    height: 70px;
+    font-size: 14px;
+  }
+
+
+  .habilidades button.active {
+    width: 180px;
+    height: 90px;
+    font-size: 18px;
+  }
+
+  .habilidades-card {
+    row-gap: 58px;
+    height: 580px;
+    width: 180px;
+  }
+
+  .icon-size {
+    width: 48px;
+    height: 48px;
+  }
+
+  .projetos-card {
+    top: -100px;
+    width: 350px;
+  }
+
+  .repo-card {
+    margin-top: 60px;
+    width: 250px;
+  }
+
+  .repo-image {
+    width: 225px;
+    height: 135px;
+  }
+
+  .repo-card p {
+    font-size: 13px;
+  }
+
+  .repo-navigation {
+    margin-top: 20px;
+    margin-left: 45px;
+    margin-right: 45px;
+
+  }
+
+  @media screen and (max-width: 1420px) {
+
+    .div-sub-2 {
+      min-width: 0px;
+      max-width: 350px;
+    }
+
+    @media screen and (max-width: 1345px) {
+
+      .div-sub {
+        min-width: 0px;
+        max-width: 350px;
+      }
+
+      @media screen and (max-width: 1214px) {
+
+        .projetos-card {
+          max-width: 300px;
+        }
+
+        @media screen and (max-width: 1138px) {
+
+          .titulo {
+            font-size: 26px;
+          }
+
+        }
+
+      }
+
+
+
+
+
+    }
+
+  }
+}
+
+
+
+
+
+@media screen and (max-width: 1023px) {
+
+  @keyframes overlayFadeIn {
+    0% {
+      transform: translateX(100%); 
+      opacity: 1;
+    }
+    100% {
+      transform: translateX(0); 
+      opacity: 1; 
+    }
+  }
+
+  .flex-column {
+    width: 100%;
+  }
+
+  .center {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: max-content;
+  }
+
+  .perfil {
+    margin-left: 10px;
+    margin-top: 10px;
+    display: flex;
+    width: 100%;
+    height: 318px;
+  }
+
+  .foto_perfil {
+    width: 95px;
+    height: 95px;
+  }
+
+  .retangulo_redes_sociais {
+    width: 98px;
+    height: 61px;
+    margin-left: 37px;
+    margin-top: 50px;
+  }
+
+  .retangulo_1 {
+    width: 130px;
+    height: 70px;
+  }
+
+  .retangulo_redes_sociais_div {
+    margin-top: -53px;
+    margin-left: 40px;
+    width: 65px;
+  }
+
+  .icon-perfil {
+    width: 30px;
+    height: 30px;
+  }
+
+  .icon-perfil:hover {
+    width: 30px;
+    height: 30px;
+  }
+
+  .icon-perfil:active {
+    opacity: 75%;
+  }
+
+  .nome_div {
+    margin-top: 10px;
+    position: relative;
+    width: 320px;
+
+  }
+
+  .nome {
+    font-size: 32px;
+  }
+
+  .espaco {
+    margin-left: 140px;
+  }
+
+
+  .titulo {
+    font-size: 24px;
+  }
+
+  .subtitulo {
+    font-size: 18px;
+    width: 250px;
+  }
+
+  .div-sub {
+    display: flex;
+    align-items: center;
+    min-width: 0px;
+  }
+
+  .overlay-mobile-elipse {
+    align-items: center;
+    display: flex;
+    position: absolute;
+    right: 0px;
+  }
+
+  .elipse {
+    display: flex;
+  }
+
+  .elipse:active {
+    opacity: 75%;
+  }
+
+  .div-sub-2 {
+    display: flex;
+    align-items: center;
+    margin-right: 48px;
+    min-width: 525px;
+  }
+
+  .icon-size {
+    width: 48px;
+    height: 48px;
+  }
+
+  .projetos-card {
+    top: -100px;
+    width: 350px;
+  }
+
+  .repo-card {
+    margin-top: 60px;
+    width: 250px;
+  }
+
+  .repo-image {
+    width: 225px;
+    height: 135px;
+  }
+
+  .repo-card a:active{
+    opacity: 75%;
+  }
+
+  .repo-card a:hover {
+    color: #7118cf;
+  }
+
+  .repo-card p {
+    font-size: 13px;
+  }
+
+  .repo-navigation {
+    margin-top: 20px;
+    margin-left: 45px;
+    margin-right: 45px;
+
+  }
+  
+  .repo-button:hover {
+    background-color: #5b0564;
+  }
+  
+  .repo-button:active {
+    opacity: 75%;
+  }
+
+  .habilidades {
+    display: none;
+  }
+
+  .habilidades-card-background {
+    display: none;
+  }
+
+  .projetos-div {
+    position: absolute;
+    bottom: 0px;
+    display: flex;
+    flex-direction: column-reverse;
+  }
+
+  .habilidades-overlay {
+    position: absolute;
+    z-index: 20;
+    width: 100vw;
+    height: 100vh;
+    background-color: #200933;
+    top: 0px;
+    right: 0px;
+
+  }
+
+  .overlay-fade-in{
+    animation: overlayFadeIn 0.7s ease-out forwards;
+  }
+
+  .elipse-2 {
+    margin-top: 200px;
+    margin-right: 10px;
+    height: 82px;
+    transform: rotate(180deg);
+  }
+
+  .elipse-2:active {
+    opacity: 75%;
+  }
+
+  .habilidades-mobile {
+    margin-top: 195px;
+    width: 200px;
+    height: 440px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin-right: 10px;
+  }
+
+  .habilidades-mobile button {
+    width: 100px;
+    height: 75px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: "Montserrat", system-ui;
+    font-weight: 600;
+    font-style: normal;
+    font-size: 16px;
+
+  }
+
+
+  .habilidades-mobile button.active {
+    width: 120px;
+    height: 75px;
+    background: linear-gradient(darkblue 0%, #5b0564 100%);
+    color: white;
+    text-shadow: 0 0 15px white;
+    font-size: 20px;
+    filter: drop-shadow(10px 8px 2px RGB(0, 0, 0, 1));
+  }
+
+  .habilidades-mobile button.active:hover {
+    background-color: #420449;
+  }
+
+  .habilidades-mobile button:not(.active) {
+    background-color: RGB(255, 255, 255, 0.06);
+    color: white;
+    filter: blur(1.5px);
+  }
+
+  .habilidades-mobile button:not(.active):hover {
+    background-color: RGB(255, 255, 255, 0.2);
+  }
+
+  .habilidades-card-background-mobile {
+    background-color: #ffffff;
+    width: 278px;
+    height: 100vh;
+  }
+
+  .habilidades-card-mobile {
+    display: flex;
+    flex-direction: column;
+    row-gap: 64px;
+    margin-top: 64px;
+    margin-left: 20px;
+    width: 200px;
+    height: 704px;
+    font-family: "Montserrat", system-ui;
+    opacity: 0;
+    padding-right: 10px;
+  }
+
+  .habilidades-card-mobile-active {
+    opacity: 1;
+  }
+
+  .icon-size-mobile {
+    width: 48px;
+    height: 48px;
+  }
+
+  .flex-overlay {
+    display: flex;
+  }
+
+  .habilidades-div-mobile {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    font-size: 14px;
+    text-align: left;
+  }
+
+  .habilidades-overlay-fade-exit {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .habilidades-overlay-fade-exit-active {
+    transform: translateX(100%);
+    /* Move um pouco para cima ao sair */
+    transition: transform 700ms;
+    /* Duração da animação */
+  }
+
+
+  @media screen and (min-width: 769px) and (max-width: 1023px) {
+
+    .perfil {
+      margin-left: 20px;
+      margin-top: 20px;
+      height: 318px;
+    }
+
+    .foto_perfil {
+      width: 180px;
+      height: 180px;
+    }
+
+    .retangulo_redes_sociais {
+      width: 201px;
+      height: 112px;
+      margin-left: 70px;
+      margin-top: 117px;
+    }
+
+    .retangulo_1 {
+      width: 201px;
+      height: 112px;
+    }
+
+    .retangulo_redes_sociais_div {
+      margin-top: -82px;
+      margin-left: 60px;
+      width: 100px;
+    }
+
+    .icon-perfil {
+      width: 44px;
+      height: 44px;
+    }
+
+    .icon-perfil:hover {
+      width: 44px;
+      height: 44px;
+    }
+
+    .nome_div {
+      margin-top: 40px;
+      position: relative;
+      width: 500px;
+
+    }
+
+    .nome {
+      font-size: 40px;
+    }
+
+    .espaco {
+      margin-left: 180px;
+    }
+
+    .titulo_pagina {
+      text-align: center;
+    }
+
+    .titulo {
+      font-size: 32px;
+      text-align: center;
+    }
+
+    .subtitulo {
+      width: 600px;
+      font-size: 21px;
+    }
+
+    .div-sub-2 {
+      min-width: 0px;
+      width: 350px;
+    }
+
+    .projetos-div {
+      position: absolute;
+      bottom: 0px;
+      flex-direction: row;
+    }
+
+    @media screen and (max-width: 920px) {
+      .center {
+        height: 400px;
+      }
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+
+    .center {
+      height: 300px;
+    }
+
+    .div-sub-2 {
+      display: flex;
+      flex-direction: column-reverse;
+      min-width: 0px;
+      margin: 0;
+    }
+
+    .icon-flecha2 {
+      transform: rotate(90deg);
+    }
+
+    .projetos-card {
+      background-color: white;
+      width: 100%;
+      height: 380px;
+      border-radius: 0 0 0 0;
+
+    }
+
+    .repo-card {
+      align-items: center;
+      width: 100%;
+      margin: 60px 0 0 0;
+      padding: 0;
+    }
+
+    .repo-navigation {
+      position: relative;
+      display: flex;
+      justify-content: space-between;
+      margin-top: 30px;
+      margin-left: 45px;
+      margin-right: 45px;
+
+    }
+
+    .projetos-div {
+      width: 100%;
+      max-width: 100%;
+      row-gap: 10px;
+    }
+
+    .repo-fade-backward-exit {
+      top: 50px;
+      transform: translateX(0);
+    }
+
+    .repo-fade-forward-exit {
+      top: 50px;
+      transform: translateX(0);
+    }
+
+    @media screen and (min-width: 381px) and (max-width: 480px) {
+
+      .center {
+        height: 270px;
+      }
+    }
+
+    @media screen and (max-width: 400px) {
+      .habilidades-div-mobile {
+        font-size: 12px;
+      }
+
+      .habilidades-mobile button {
+        width: 80px;
+        font-size: 14px;
+      }
+
+      .habilidades-mobile button.active {
+        width: 100px;
+        font-size: 18px;
+      }
+
+      .habilidades-mobile {
+        margin-right: 20px;
+      }
+
+    }
+
+    @media screen and (max-width: 380px) {
+
+      .center {
+        height: 250px;
+      }
+
+      .subtitulo {
+        font-size: 16px;
+      }
+    }
+
+  }
+
+}

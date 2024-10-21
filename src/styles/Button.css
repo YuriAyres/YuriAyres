@@ -1,0 +1,26 @@
+.button-container {
+    margin-top: 20px;
+    padding-left: 8px;
+    padding-bottom: 27px;
+    text-align: center;
+  }
+  
+  .button {
+    font-family: 'octopus';
+    padding: 10px;
+    background-color: #f50f0f00;
+    color: whitesmoke;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+  }
+
+  .button:hover{
+  position: relative;
+  background: rgba(245, 245, 245, 0.164);
+  width: 120px;
+  height: 55px;
+  border-radius: 30px;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.308);
+  }
+
