@@ -963,6 +963,10 @@
 
   @media screen and (min-width: 769px) and (max-width: 1023px) {
 
+    .elipse{
+      z-index: 20;
+    }
+
     .perfil {
       margin-left: 20px;
       margin-top: 20px;
@@ -1052,7 +1056,15 @@
   @media screen and (max-width: 768px) {
 
     .center {
-      height: 300px;
+      height: 220px;
+    }
+
+    .perfil{
+      height: 170px;
+    }
+
+    .titulo_pagina{
+      justify-content: space-between;
     }
 
     .div-sub-2 {
@@ -1069,7 +1081,7 @@
     .projetos-card {
       background-color: white;
       width: 100%;
-      height: 380px;
+      height: 320px;
       border-radius: 0 0 0 0;
 
     }
@@ -1077,7 +1089,7 @@
     .repo-card {
       align-items: center;
       width: 100%;
-      margin: 60px 0 0 0;
+      margin: 10px 0 0 0;
       padding: 0;
     }
 
@@ -1085,7 +1097,7 @@
       position: relative;
       display: flex;
       justify-content: space-between;
-      margin-top: 30px;
+      margin-top: 10px;
       margin-left: 45px;
       margin-right: 45px;
 
@@ -1094,7 +1106,9 @@
     .projetos-div {
       width: 100%;
       max-width: 100%;
-      row-gap: 10px;
+      row-gap: 0px;
+      height: 410px;
+      justify-content: center;
     }
 
     .repo-fade-backward-exit {
@@ -1105,13 +1119,6 @@
     .repo-fade-forward-exit {
       top: 50px;
       transform: translateX(0);
-    }
-
-    @media screen and (min-width: 381px) and (max-width: 480px) {
-
-      .center {
-        height: 270px;
-      }
     }
 
     @media screen and (max-width: 400px) {
