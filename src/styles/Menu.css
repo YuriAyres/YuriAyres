@@ -589,6 +589,30 @@
       max-width: 350px;
     }
 
+    @media screen and (max-width: 1366px) {
+      
+      .habilidades-card {
+        row-gap: 32px;
+      }
+
+      .repo-image {
+        width: 200px;
+        height: 120px;
+      }
+
+      .projetos-card{
+        border-radius: 0 100px 0 0;;
+      }
+
+      .repo-card {
+        margin-top: 20px;
+      }
+
+      .repo-navigation {
+        margin-top: 10px;
+      }
+    
+
     @media screen and (max-width: 1345px) {
 
       .div-sub {
@@ -617,6 +641,7 @@
 
 
     }
+  }
 
   }
 }
