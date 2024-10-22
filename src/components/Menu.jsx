@@ -206,7 +206,7 @@ function Menu({ buttonClicked }) {
                     </div>
                   </section>
                 </div>
-                <div className="projetos-div">
+                <div className={`projetos-div ${isOverlayOpen ? 'projetos-div-null' : ''}`}>
                   <section className="projetos-card">
                     {repos.length > 0 ? (
                       <TransitionGroup>
