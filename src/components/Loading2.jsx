@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import PuffLoader from "react-spinners/PuffLoader";
 import "../styles/Button.css";
-import videoSource from "../assets/video/EfeitoPortal.mp4";
+import videoSource from "../assets/video/efeitoPortal.mp4";
 import { useSpring, animated } from 'react-spring';
 
 function Loading2({ updateButtonClicked }) {
