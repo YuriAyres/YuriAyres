@@ -211,7 +211,6 @@
 .habilidades button:not(.active) {
   background-color: RGB(255, 255, 255, 0.06);
   color: white;
-  filter: blur(1.5px);
 }
 
 .habilidades button:not(.active):hover {
@@ -434,17 +433,6 @@
 
 @media screen and (min-width: 1024px) and (max-width: 1615px) {
 
-  @media screen and (max-height: 720px) {
-    .fade-exit {
-      transform: translateY(-40px);
-    }
-
-    .fade-exit-active {
-      transform: translateY(20px);
-    }
-
-  }
-
   .flex-column {
     width: 65%;
   }
@@ -579,6 +567,30 @@
     margin-top: 20px;
     margin-left: 45px;
     margin-right: 45px;
+
+  }
+
+  @media screen and (max-height: 720px) {
+    .fade-exit {
+      transform: translateY(-40px);
+    }
+
+    .fade-exit-active {
+      transform: translateY(20px);
+    }
+
+    @media  screen and (max-height: 650px) {
+
+      .body-2 {
+        overflow-y: scroll;
+        overflow-x: hidden;
+      }
+
+      .habilidades-card-background {
+        height: 800px;
+      }
+      
+    }
 
   }
 
@@ -901,7 +913,6 @@
   .habilidades-mobile button:not(.active) {
     background-color: RGB(255, 255, 255, 0.06);
     color: white;
-    filter: blur(1.5px);
   }
 
   .habilidades-mobile button:not(.active):hover {
@@ -1043,12 +1054,34 @@
       flex-direction: row;
     }
 
-    @media screen and (max-width: 920px) {
+    @media screen and (max-width: 880px) {
       .center {
-        height: 400px;
+        height: 360px;
       }
     }
+
+    @media screen and (max-height:940px){
+      
+      .perfil {
+        height: 200px;
+      }
+
+      @media  screen and (max-height:800px) {
+
+        .div-sub {
+          width: 300px;
+        }
+
+        .titulo_pagina {
+          margin-left: 300px;
+        }
+        
+      }
+      
+    }
   }
+
+    
 
   @media screen and (max-width: 768px) {
 
