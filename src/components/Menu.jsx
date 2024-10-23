@@ -168,7 +168,7 @@ function Menu({ buttonClicked }) {
 
 
   return (
-    <div className="menu-container" style={{ display: buttonClicked ? 'block' : 'none' }}>
+    <div translate="no" className="menu-container" style={{ display: buttonClicked ? 'block' : 'none' }}>
       <animated.div style={styles}>
         <div className="portfolio-pages">
           <div className="body-2">

@@ -104,7 +104,7 @@ function Loading2({ updateButtonClicked }) {
       {!setAnimationComplete || !buttonClicked ? (
         <>
           <animated.div style={{ ...exitAnimation }}>
-            <div className="button-container" style={buttonContainerStyle}>
+            <div translate="no" className="button-container" style={buttonContainerStyle}>
               <button
                 className="button"
                 onClick={handleButtonClick}
