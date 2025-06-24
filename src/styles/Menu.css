@@ -242,13 +242,10 @@
 
 .fade-exit {
   opacity: 1;
-  transform: translateY(0px);
 }
 
 .fade-exit-active {
   opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 500ms ease, transform 500ms ease;
 }
 
 .icon-size {
