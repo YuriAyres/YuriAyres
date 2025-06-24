@@ -95,25 +95,16 @@
 .nome_div {
   margin-top: 240px;
   position: absolute;
-  width: 320px;
-
 }
 
 .nome {
-  font-family: "octopus";
+  font-family: "Krona One", system-ui;
   font-size: 40px;
   font-weight: 500;
   font-style: normal;
   text-align: left;
   color: white;
-  text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
-}
-
-.espaco {
-  font-family: "Italianno", cursive;
-  margin-left: 200px;
-  font-weight: 600;
-  margin-top: -20px;
+  text-shadow: 1px 1px 2px black, 0 0 25px rgb(255, 255, 255), 0 0 5px darkblue;
 }
 
 
@@ -727,8 +718,6 @@
   .nome_div {
     margin-top: 10px;
     position: relative;
-    width: 320px;
-
   }
 
   .nome {
@@ -1009,7 +998,6 @@
     .nome_div {
       margin-top: 40px;
       position: relative;
-      width: 500px;
 
     }
 
@@ -1194,4 +1182,19 @@
 
   }
 
+}
+
+@media screen and (max-width: 540px){
+   .nome {
+        text-align: right;
+      }
+    .nome_div {
+      margin-right: 15px;
+    }
+}
+
+@media screen and (max-width: 380px){
+   .nome {
+        font-size: 24px;
+      }
 }

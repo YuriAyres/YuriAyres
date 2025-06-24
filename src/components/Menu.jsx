@@ -187,8 +187,7 @@ function Menu({ buttonClicked }) {
 
                     </div>
                     <div id="text" ref={textRef} className="nome_div ">
-                      <h1 className="nome ">Yuri Ayres</h1>
-                      <h1 className="nome espaco ">de Paula</h1>
+                      <h1 className="nome ">Yuri Ayres de Paula</h1>
                     </div>
                   </section>
                   <section className="titulo_pagina">
