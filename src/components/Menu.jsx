@@ -164,7 +164,7 @@ function Menu({ buttonClicked }) {
   };
 
   const repoRef = useRef(null);
-  
+
 
 
   return (
@@ -231,11 +231,6 @@ function Menu({ buttonClicked }) {
                         </div>
                       </div>
                     )}
-
-                    <div className="repo-navigation">
-                      <button className="repo-button" onClick={prevRepo}><img src={flecha} alt="" className="icon-flecha3" /></button>
-                      <button className="repo-button" onClick={nextRepo}><img src={flecha} alt="" className="icon-flecha" /></button>
-                    </div>
                   </section>
                   <div className="div-sub-2">
                     <img src={flecha} alt="" className={`icon-flecha2 ${animateArrow2 ? 'animate-arrow-2' : ''}`} />
@@ -246,36 +241,46 @@ function Menu({ buttonClicked }) {
                 </div>
               </div>
               <section className="habilidades">
-                <button
-                  className={activeButton === 'frontend' ? 'active' : ''}
-                  onClick={() => handleClick('frontend')}
-                >
-                  Frontend
-                </button>
-                <button
-                  className={activeButton === 'backend' ? 'active' : ''}
-                  onClick={() => handleClick('backend')}
-                >
-                  Backend
-                </button>
-                <button
-                  className={activeButton === 'banco' ? 'active' : ''}
-                  onClick={() => handleClick('banco')}
-                >
-                  Banco de Dados
-                </button>
-                <button
-                  className={activeButton === 'devops' ? 'active' : ''}
-                  onClick={() => handleClick('devops')}
-                >
-                  DevOps &amp; Infra
-                </button>
-                <button
-                  className={activeButton === 'toolset' ? 'active' : ''}
-                  onClick={() => handleClick('toolset')}
-                >
-                  Toolset
-                </button>
+                <div>
+                  <button
+                    className={activeButton === 'frontend' ? 'active' : ''}
+                    onClick={() => handleClick('frontend')}
+                  >
+                    Frontend
+                  </button>
+                </div>
+                <div>
+                  <button
+                    className={activeButton === 'backend' ? 'active' : ''}
+                    onClick={() => handleClick('backend')}
+                  >
+                    Backend
+                  </button>
+                </div>
+                <div>
+                  <button
+                    className={activeButton === 'banco' ? 'active' : ''}
+                    onClick={() => handleClick('banco')}
+                  >
+                    Banco de Dados
+                  </button>
+                </div>
+                <div>
+                  <button
+                    className={activeButton === 'devops' ? 'active' : ''}
+                    onClick={() => handleClick('devops')}
+                  >
+                    DevOps &amp; Infra
+                  </button>
+                </div>
+                <div>
+                  <button
+                    className={activeButton === 'toolset' ? 'active' : ''}
+                    onClick={() => handleClick('toolset')}
+                  >
+                    Toolset
+                  </button>
+                </div>
               </section>
               <section className="habilidades-card-background">
                 <TransitionGroup component={null}>

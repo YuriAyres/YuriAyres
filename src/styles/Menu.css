@@ -177,12 +177,13 @@
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  margin-right: 32px;
+  background-color: #F2F2F2;
+  border-radius: 10px 0 0 10px;
 }
 
 .habilidades button {
-  width: 175px;
-  height: 75px;
+  width: 200px;
+  height: 48px;
   border: none;
   border-radius: 8px;
   cursor: pointer;
@@ -190,31 +191,20 @@
   font-weight: 600;
   font-style: normal;
   font-size: 16px;
+  background-color: transparent;
 
 }
 
 
 .habilidades button.active {
   width: 200px;
-  height: 100px;
-  background: linear-gradient(darkblue 0%, #5b0564 100%);
-  color: white;
+  height: 48px;
+  color: black;
   text-shadow: 0 0 15px white;
-  font-size: 20px;
-  filter: drop-shadow(10px 8px 2px RGB(0, 0, 0, 1));
-}
-
-.habilidades button.active:hover {
-  background-color: #420449;
 }
 
 .habilidades button:not(.active) {
-  background-color: RGB(255, 255, 255, 0.06);
-  color: white;
-}
-
-.habilidades button:not(.active):hover {
-  background-color: RGB(255, 255, 255, 0.2);
+  color: RGB(0, 0, 0, 0.5);
 }
 
 .habilidades-card-background {
@@ -274,10 +264,8 @@
 }
 
 .projetos-card {
-  background-color: white;
   width: 413px;
   height: 450px;
-  border-radius: 0 206px 0 0;
 
 }
 
@@ -314,12 +302,12 @@
   font-family: "Krona One", system-ui;
   font-weight: 400;
   font-style: normal;
-  color: #3d0b43;
+  color: #ffffff;
 }
 
 .repo-card p {
   font-size: 14px;
-  color: #3d0b43;
+  color: #ffffff;
   font-family: "Montserrat", system-ui;
   font-weight: 400;
   font-style: normal;
@@ -328,7 +316,7 @@
 .repo-card a {
   display: inline-block;
   margin-top: 10px;
-  color: #7118cf;
+  color: #8900FF;
   font-family: "Montserrat", system-ui;
   font-weight: 600;
   font-style: normal;
@@ -336,7 +324,7 @@
 }
 
 .repo-card a:hover {
-  color: #7018cf7e;
+  color: #ad4fff;
 }
 
 .repo-navigation {
@@ -431,6 +419,17 @@
   display: none;
 }
 
+.background-flex {
+  display: flex;
+  position: absolute;
+  width: 410px;
+  height: 100%;
+  background: linear-gradient(#280348 27%, #F2F2F2 75%);
+  z-index: 0;
+  border-radius: 0 30px;
+  top: 3%;
+}
+
 @media screen and (min-width: 1024px) and (max-width: 1615px) {
 
   .flex-column {
@@ -446,8 +445,6 @@
   }
 
   .perfil {
-    margin-left: 20px;
-    margin-top: 20px;
     width: 316px;
     height: 318px;
   }
@@ -567,7 +564,6 @@
     margin-top: 20px;
     margin-left: 45px;
     margin-right: 45px;
-
   }
 
   @media screen and (max-height: 720px) {
@@ -1154,6 +1150,10 @@
 
     .habilidades-card-mobile {
       row-gap: 32px;
+    }
+
+    .background-flex {
+      display: none;
     }
 
     @media screen and (min-width: 381px) and (max-width: 480px) {
