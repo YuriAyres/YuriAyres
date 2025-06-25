@@ -239,192 +239,194 @@ function Menu({ buttonClicked }) {
                   </div>
                 </div>
               </div>
-              <section className="habilidades">
-                <div>
-                  <button
-                    className={activeButton === 'frontend' ? 'active' : ''}
-                    onClick={() => handleClick('frontend')}
-                  >
-                    Frontend
-                  </button>
-                </div>
-                <div>
-                  <button
-                    className={activeButton === 'backend' ? 'active' : ''}
-                    onClick={() => handleClick('backend')}
-                  >
-                    Backend
-                  </button>
-                </div>
-                <div>
-                  <button
-                    className={activeButton === 'banco' ? 'active' : ''}
-                    onClick={() => handleClick('banco')}
-                  >
-                    Banco de Dados
-                  </button>
-                </div>
-                <div>
-                  <button
-                    className={activeButton === 'devops' ? 'active' : ''}
-                    onClick={() => handleClick('devops')}
-                  >
-                    DevOps &amp; Infra
-                  </button>
-                </div>
-                <div>
-                  <button
-                    className={activeButton === 'toolset' ? 'active' : ''}
-                    onClick={() => handleClick('toolset')}
-                  >
-                    Toolset
-                  </button>
-                </div>
-              </section>
-              <section className="habilidades-card-background">
-                <TransitionGroup component={null}>
-                  {activeButton === 'frontend' && (
-                    <CSSTransition
-                      key="frontend"
-                      timeout={500}
-                      classNames="fade"
+              <div className="div_habilidades">
+                <section className="habilidades">
+                  <div>
+                    <button
+                      className={activeButton === 'frontend' ? 'active' : ''}
+                      onClick={() => handleClick('frontend')}
                     >
-                      <section className={`habilidades-card ${activeButton === 'frontend' ? 'habilidades-card-active' : ''}`}>
-                        <div className="habilidades-div">
-                          <img src={html} alt="" className="icon-size" />
-                          <h3>HTML</h3>
-                        </div>
-                        <div className="habilidades-div">
-                          <img src={css} alt="" className="icon-size" />
-                          <h3>CSS</h3>
-                        </div>
-                        <div className="habilidades-div">
-                          <img src={js} alt="" className="icon-size" />
-                          <h3>Javascript</h3>
-                        </div>
-                        <div className="habilidades-div">
-                          <img src={react} alt="" className="icon-size" />
-                          <h3>React</h3>
-                        </div>
-                        <div className="habilidades-div">
-                          <img src={node} alt="" className="icon-size" />
-                          <h3>NodeJS</h3>
-                        </div>
-                        <div className="habilidades-div">
-                          <img src={vite} alt="" className="icon-size" />
-                          <h3>Vite</h3>
-                        </div>
-                      </section>
-                    </CSSTransition>
-                  )}
-
-                  {activeButton === 'backend' && (
-                    <CSSTransition
-                      key="backend"
-                      timeout={500}
-                      classNames="fade"
+                      Frontend
+                    </button>
+                  </div>
+                  <div>
+                    <button
+                      className={activeButton === 'backend' ? 'active' : ''}
+                      onClick={() => handleClick('backend')}
                     >
-                      <section className={`habilidades-card ${activeButton === 'backend' ? 'habilidades-card-active' : ''}`}>
-                        <div className="habilidades-div">
-                          <img src={python} alt="" className="icon-size" />
-                          <h3>Python</h3>
-                        </div>
-                        <div className="habilidades-div">
-                          <img src={flask} alt="" className="icon-size" />
-                          <h3>Flask</h3>
-                        </div>
-                        <div className="habilidades-div">
-                          <img src={fast} alt="" className="icon-size" />
-                          <h3>FastAPI</h3>
-                        </div>
-                      </section>
-                    </CSSTransition>
-                  )}
-
-                  {activeButton === 'banco' && (
-                    <CSSTransition
-                      key="banco"
-                      timeout={500}
-                      classNames="fade"
+                      Backend
+                    </button>
+                  </div>
+                  <div>
+                    <button
+                      className={activeButton === 'banco' ? 'active' : ''}
+                      onClick={() => handleClick('banco')}
                     >
-                      <section className={`habilidades-card ${activeButton === 'banco' ? 'habilidades-card-active' : ''}`}>
-                        <div className="habilidades-div">
-                          <img src={postgre} alt="" className="icon-size" />
-                          <h3>PostgreSQL</h3>
-                        </div>
-                        <div className="habilidades-div">
-                          <img src={sqla} alt="" className="icon-size" />
-                          <h3>SQLAlchemy</h3>
-                        </div>
-                      </section>
-                    </CSSTransition>
-                  )}
-
-                  {activeButton === 'devops' && (
-                    <CSSTransition
-                      key="devops"
-                      timeout={500}
-                      classNames="fade"
+                      Banco de Dados
+                    </button>
+                  </div>
+                  <div>
+                    <button
+                      className={activeButton === 'devops' ? 'active' : ''}
+                      onClick={() => handleClick('devops')}
                     >
-                      <section className={`habilidades-card ${activeButton === 'devops' ? 'habilidades-card-active' : ''}`}>
-                        <div className="habilidades-div">
-                          <img src={aws} alt="" className="icon-size" />
-                          <h3>Amazon Web Services</h3>
-                        </div>
-                        <div className="habilidades-div">
-                          <img src={apache} alt="" className="icon-size" />
-                          <h3>Apache</h3>
-                        </div>
-                        <div className="habilidades-div">
-                          <img src={arduino} alt="" className="icon-size" />
-                          <h3>Arduino</h3>
-                        </div>
-                        <div className="habilidades-div">
-                          <img src={rasp} alt="" className="icon-size" />
-                          <h3>Raspberry Pi</h3>
-                        </div>
-                      </section>
-                    </CSSTransition>
-                  )}
-
-                  {activeButton === 'toolset' && (
-                    <CSSTransition
-                      key="toolset"
-                      timeout={500}
-                      classNames="fade"
+                      DevOps &amp; Infra
+                    </button>
+                  </div>
+                  <div>
+                    <button
+                      className={activeButton === 'toolset' ? 'active' : ''}
+                      onClick={() => handleClick('toolset')}
                     >
-                      <section className={`habilidades-card ${activeButton === 'toolset' ? 'habilidades-card-active' : ''}`}>
-                        <div className="habilidades-div">
-                          <img src={git} alt="" className="icon-size" />
-                          <h3>Git</h3>
-                        </div>
-                        <div className="habilidades-div">
-                          <img src={github} alt="" className="icon-size" />
-                          <h3>GitHub</h3>
-                        </div>
-                        <div className="habilidades-div">
-                          <img src={post} alt="" className="icon-size" />
-                          <h3>Postman</h3>
-                        </div>
-                        <div className="habilidades-div">
-                          <img src={vs} alt="" className="icon-size" />
-                          <h3>VSCode</h3>
-                        </div>
-                        <div className="habilidades-div">
-                          <img src={vbox} alt="" className="icon-size" />
-                          <h3>Virtual Box</h3>
-                        </div>
-                        <div className="habilidades-div">
-                          <img src={ubuntu} alt="" className="icon-size" />
-                          <h3>Ubuntu</h3>
-                        </div>
-                      </section>
-                    </CSSTransition>
-                  )}
+                      Toolset
+                    </button>
+                  </div>
+                </section>
+                <section className="habilidades-card-background">
+                  <TransitionGroup component={null}>
+                    {activeButton === 'frontend' && (
+                      <CSSTransition
+                        key="frontend"
+                        timeout={500}
+                        classNames="fade"
+                      >
+                        <section className={`habilidades-card ${activeButton === 'frontend' ? 'habilidades-card-active' : ''}`}>
+                          <div className="habilidades-div">
+                            <img src={html} alt="" className="icon-size" />
+                            <h3>HTML</h3>
+                          </div>
+                          <div className="habilidades-div">
+                            <img src={css} alt="" className="icon-size" />
+                            <h3>CSS</h3>
+                          </div>
+                          <div className="habilidades-div">
+                            <img src={js} alt="" className="icon-size" />
+                            <h3>Javascript</h3>
+                          </div>
+                          <div className="habilidades-div">
+                            <img src={react} alt="" className="icon-size" />
+                            <h3>React</h3>
+                          </div>
+                          <div className="habilidades-div">
+                            <img src={node} alt="" className="icon-size" />
+                            <h3>NodeJS</h3>
+                          </div>
+                          <div className="habilidades-div">
+                            <img src={vite} alt="" className="icon-size" />
+                            <h3>Vite</h3>
+                          </div>
+                        </section>
+                      </CSSTransition>
+                    )}
+
+                    {activeButton === 'backend' && (
+                      <CSSTransition
+                        key="backend"
+                        timeout={500}
+                        classNames="fade"
+                      >
+                        <section className={`habilidades-card ${activeButton === 'backend' ? 'habilidades-card-active' : ''}`}>
+                          <div className="habilidades-div">
+                            <img src={python} alt="" className="icon-size" />
+                            <h3>Python</h3>
+                          </div>
+                          <div className="habilidades-div">
+                            <img src={flask} alt="" className="icon-size" />
+                            <h3>Flask</h3>
+                          </div>
+                          <div className="habilidades-div">
+                            <img src={fast} alt="" className="icon-size" />
+                            <h3>FastAPI</h3>
+                          </div>
+                        </section>
+                      </CSSTransition>
+                    )}
+
+                    {activeButton === 'banco' && (
+                      <CSSTransition
+                        key="banco"
+                        timeout={500}
+                        classNames="fade"
+                      >
+                        <section className={`habilidades-card ${activeButton === 'banco' ? 'habilidades-card-active' : ''}`}>
+                          <div className="habilidades-div">
+                            <img src={postgre} alt="" className="icon-size" />
+                            <h3>PostgreSQL</h3>
+                          </div>
+                          <div className="habilidades-div">
+                            <img src={sqla} alt="" className="icon-size" />
+                            <h3>SQLAlchemy</h3>
+                          </div>
+                        </section>
+                      </CSSTransition>
+                    )}
+
+                    {activeButton === 'devops' && (
+                      <CSSTransition
+                        key="devops"
+                        timeout={500}
+                        classNames="fade"
+                      >
+                        <section className={`habilidades-card ${activeButton === 'devops' ? 'habilidades-card-active' : ''}`}>
+                          <div className="habilidades-div">
+                            <img src={aws} alt="" className="icon-size" />
+                            <h3>Amazon Web Services</h3>
+                          </div>
+                          <div className="habilidades-div">
+                            <img src={apache} alt="" className="icon-size" />
+                            <h3>Apache</h3>
+                          </div>
+                          <div className="habilidades-div">
+                            <img src={arduino} alt="" className="icon-size" />
+                            <h3>Arduino</h3>
+                          </div>
+                          <div className="habilidades-div">
+                            <img src={rasp} alt="" className="icon-size" />
+                            <h3>Raspberry Pi</h3>
+                          </div>
+                        </section>
+                      </CSSTransition>
+                    )}
+
+                    {activeButton === 'toolset' && (
+                      <CSSTransition
+                        key="toolset"
+                        timeout={500}
+                        classNames="fade"
+                      >
+                        <section className={`habilidades-card ${activeButton === 'toolset' ? 'habilidades-card-active' : ''}`}>
+                          <div className="habilidades-div">
+                            <img src={git} alt="" className="icon-size" />
+                            <h3>Git</h3>
+                          </div>
+                          <div className="habilidades-div">
+                            <img src={github} alt="" className="icon-size" />
+                            <h3>GitHub</h3>
+                          </div>
+                          <div className="habilidades-div">
+                            <img src={post} alt="" className="icon-size" />
+                            <h3>Postman</h3>
+                          </div>
+                          <div className="habilidades-div">
+                            <img src={vs} alt="" className="icon-size" />
+                            <h3>VSCode</h3>
+                          </div>
+                          <div className="habilidades-div">
+                            <img src={vbox} alt="" className="icon-size" />
+                            <h3>Virtual Box</h3>
+                          </div>
+                          <div className="habilidades-div">
+                            <img src={ubuntu} alt="" className="icon-size" />
+                            <h3>Ubuntu</h3>
+                          </div>
+                        </section>
+                      </CSSTransition>
+                    )}
 
 
-                </TransitionGroup>
-              </section>
+                  </TransitionGroup>
+                </section>
+              </div>
             </div>
 
           </div>
