@@ -36,8 +36,8 @@ function Loading2({ updateButtonClicked }) {
   };
 
   const buttonStyle = {
-    fontSize: isHovered ? "1.4em" : "1.2em",
-    transition: "font-size 0.1s ease, background 0.5s ease-out, box-shadow 0.5s ease-out",
+    transform: isHovered ? "scale(1.1)" : "scale(1)",
+    transition: "transform 0.3s ease, background 0.5s ease-out, box-shadow 0.5s ease-out",
   };
 
   const handleMouseEnter = () => {
