@@ -62,6 +62,10 @@ function Menu({ buttonClicked }) {
           setAnimateArrow2(true);
         }, 5000);
 
+        setTimeout(() => {
+          setTextIntroIsVisible(false);
+        }, 7000);
+
       }, delay);
 
       return () => clearTimeout(timeoutId);
@@ -165,6 +169,19 @@ function Menu({ buttonClicked }) {
 
   const repoRef = useRef(null);
 
+  const [showTitulo, setShowTitulo] = useState(true);
+
+  const [TextIntroisVisible, setTextIntroIsVisible] = useState(true);
+
+  function startHideAnimation() {
+    if (textIntroIsVisible === false) {
+
+      setTimeout(() => {
+        setShowTitulo(false);
+      }, 500);
+    }
+  }
+
 
 
   return (
@@ -190,20 +207,22 @@ function Menu({ buttonClicked }) {
                       <h1 className="nome ">Yuri Ayres de Paula</h1>
                     </div>
                   </section>
-                  <section className="titulo_pagina">
-                    <h2 className="titulo">
-                      {splitTextIntoSpans("Seja bem-vindo!")}
-                    </h2>
-                    <div className="div-sub">
-                      <h4 className="subtitulo">
-                        {splitTextIntoSpans("Você pode avaliar minhas habilidades técnicas aqui")}
-                      </h4>
-                      <div className="overlay-mobile-elipse">
-                        <img src={flecha} alt="" className={`icon-flecha ${animateArrow ? 'animate-arrow' : ''}`} />
-                        <img src={elipse} alt="" className="elipse" onClick={openOverlay} />
+                  {showTitulo && (
+                    <section className={`titulo_pagina ${TextIntroisVisible ? "fade-in" : "fade-out"}`}>
+                      <h2 className="titulo">
+                        {splitTextIntoSpans("Seja bem-vindo!")}
+                      </h2>
+                      <div className="div-sub">
+                        <h4 className="subtitulo">
+                          {splitTextIntoSpans("Você pode avaliar minhas habilidades técnicas aqui")}
+                        </h4>
+                        <div className="overlay-mobile-elipse">
+                          <img src={flecha} alt="" className={`icon-flecha ${animateArrow ? 'animate-arrow' : ''}`} />
+                          <img src={elipse} alt="" className="elipse" onClick={openOverlay} />
+                        </div>
                       </div>
-                    </div>
-                  </section>
+                    </section>
+                  )}
                 </div>
                 <div className={`projetos-div ${isOverlayOpen ? 'projetos-div-null' : ''}`}>
                   <section className="projetos-card">
