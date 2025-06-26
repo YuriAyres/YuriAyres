@@ -94,7 +94,7 @@ const Skills = ({ onClose }) => {
         >
             <div ref={swipeRightRef} className={show ? 'habilidades-overlay overlay-fade-in' : 'habilidades-overlay'}>
                 <div className="flex-overlay">
-                    <img src={elipse} alt="" className="elipse-2" onClick={handleClose} />
+                    <img src={elipse} alt="" className="elipse-2" />
                     <section className="habilidades-mobile">
                         <button
                             className={activeButton === 'frontend' ? 'active' : ''}

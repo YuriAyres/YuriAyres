@@ -1258,3 +1258,7 @@
 .div-sub-2.fade-out {
   opacity: 0;
 }
+
+.touch-zone {
+  touch-action: none;
+}
