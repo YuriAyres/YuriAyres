@@ -161,16 +161,6 @@ function Menu({ buttonClicked }) {
   const [animateArrow, setAnimateArrow] = useState(false);
   const [animateArrow2, setAnimateArrow2] = useState(false);
 
-  const [isOverlayOpen, setIsOverlayOpen] = useState(false);
-
-  const openOverlay = () => {
-    setIsOverlayOpen(true); // Abre o overlay
-  };
-
-  const closeOverlay = () => {
-    setIsOverlayOpen(false); // Fecha o overlay
-  };
-
   const repoRef = useRef(null);
 
   const [showTitulo, setShowTitulo] = useState(true);
@@ -197,39 +187,63 @@ function Menu({ buttonClicked }) {
     }
   }
 
+  const [overlayOffset, setOverlayOffset] = useState(window.innerWidth - 41);
   const swipeLeftRef = useRef(null);
+  const elipseLargura = 41; // ajuste conforme o tamanho da elipse
+  const initialOffsetRef = useRef(window.innerWidth - elipseLargura);
+  const isDragging = useRef(false);
+  const startX = useRef(0);
+
+
+
 
   useEffect(() => {
-    let startX = 0;
-
-    const handleTouchStart = (e) => {
-      startX = e.touches[0].clientX;
-    };
-
-    const handleTouchEnd = (e) => {
-      const endX = e.changedTouches[0].clientX;
-      const deltaX = startX - endX;
-
-      // Swipe para esquerda
-      if (deltaX > 50) {
-        openOverlay();
-      }
-    };
 
     const el = swipeLeftRef.current;
-    if (el) {
-      el.addEventListener('touchstart', handleTouchStart);
-      el.addEventListener('touchend', handleTouchEnd);
-    }
 
-    return () => {
-      if (el) {
-        el.removeEventListener('touchstart', handleTouchStart);
-        el.removeEventListener('touchend', handleTouchEnd);
+    const handleTouchStart = (e) => {
+      isDragging.current = true;
+      startX.current = e.touches[0].clientX;
+      initialOffsetRef.current = overlayOffset;
+    };
+
+    const handleTouchMove = (e) => {
+      if (!isDragging.current) return;
+
+      const currentX = e.touches[0].clientX;
+      const deltaX = currentX - startX.current;
+      let newOffset = initialOffsetRef.current + deltaX;
+
+      // limita o movimento entre 0 e a borda direita da tela
+      newOffset = Math.min(Math.max(newOffset, 0), window.innerWidth - elipseLargura);
+      setOverlayOffset(newOffset);
+    };
+
+    const handleTouchEnd = () => {
+      if (!isDragging.current) return;
+      isDragging.current = false;
+
+      const threshold = 100;
+
+      if (overlayOffset < threshold) {
+        setOverlayOffset(0); // abre completamente
+        setIsOverlayOpen(true);
+      } else {
+        setOverlayOffset(window.innerWidth - elipseLargura); // fecha (só mostra a elipse)
+        setIsOverlayOpen(false);
       }
     };
-  }, []);
 
+    el?.addEventListener('touchstart', handleTouchStart);
+    el?.addEventListener('touchmove', handleTouchMove);
+    el?.addEventListener('touchend', handleTouchEnd);
+
+    return () => {
+      el?.removeEventListener('touchstart', handleTouchStart);
+      el?.removeEventListener('touchmove', handleTouchMove);
+      el?.removeEventListener('touchend', handleTouchEnd);
+    };
+  }, [overlayOffset]);
 
 
 
@@ -239,7 +253,11 @@ function Menu({ buttonClicked }) {
       <animated.div style={styles}>
         <div className="portfolio-pages">
           <div className="body-2">
-            {isOverlayOpen && <Skills show={isOverlayOpen} onClose={closeOverlay} />}
+            <Skills
+              overlayOffset={overlayOffset}
+              swipeLeftRef={swipeLeftRef}
+            />
+
             <div className="flex">
               <div className="flex-column">
                 <div className="center">
@@ -273,12 +291,9 @@ function Menu({ buttonClicked }) {
                         </div>
                       </div>
                     )}
-                    <div ref={swipeLeftRef} className="elipse touch-zone">
-                      <img src={elipse} alt="" className="elipse" />
-                    </div>
                   </section>
                 </div>
-                <div className={`projetos-div ${isOverlayOpen ? 'projetos-div-null' : ''}`}>
+                <div className="projetos-div">
                   <section className="projetos-card">
                     {repos.length > 0 ? (
                       <TransitionGroup>

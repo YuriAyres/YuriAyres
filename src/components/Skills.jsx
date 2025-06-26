@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import github from '../assets/icons/github-original.svg';
 import html from '../assets/icons/html5-original.svg';
 import css from '../assets/icons/css3-original.svg';
@@ -27,258 +27,215 @@ import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
 
 
-const Skills = ({ onClose }) => {
+const Skills = ({ overlayOffset, swipeLeftRef }) => {
     const [activeButton, setActiveButton] = useState('frontend');
-    const [show, setShow] = useState(true);
-    const firstRef = useRef(null);
     const secondRef = useRef(null);
     const thirdRef = useRef(null);
     const fourthRef = useRef(null);
     const fifthRef = useRef(null);
     const sixthRef = useRef(null);
 
+
     const handleClick = (buttonId) => {
         setActiveButton(buttonId);
     };
 
-    const handleClose = () => {
-        setShow(false);
-    };
-
-    const handleExited = () => {
-        onClose();
-    };
-
-    const swipeRightRef = useRef(null);
-
-    React.useEffect(() => {
-        let startX = 0;
-
-        const handleTouchStart = (e) => {
-            startX = e.touches[0].clientX;
-        };
-
-        const handleTouchEnd = (e) => {
-            const endX = e.changedTouches[0].clientX;
-            const deltaX = endX - startX;
-
-            // Swipe para direita
-            if (deltaX > 50) {
-                setShow(false); // ativa animação de saída
-            }
-        };
-
-        const el = swipeRightRef.current;
-        if (el) {
-            el.addEventListener('touchstart', handleTouchStart);
-            el.addEventListener('touchend', handleTouchEnd);
-        }
-
-        return () => {
-            if (el) {
-                el.removeEventListener('touchstart', handleTouchStart);
-                el.removeEventListener('touchend', handleTouchEnd);
-            }
-        };
-    }, []);
-
-
     return (
-        <CSSTransition
-            in={show}
-            timeout={700}
-            classNames="habilidades-overlay-fade"
-            unmountOnExit
-            onExited={handleExited}
-            nodeRef={swipeRightRef}
+        <div
+            ref={swipeLeftRef}
+            className="habilidades-overlay"
+            style={{
+                transform: `translateX(${overlayOffset}px)`,
+                transition: 'transform 0.3s ease',
+                touchAction: 'none', // ajuda a prevenir comportamento estranho no arrasto
+            }}
         >
-            <div ref={swipeRightRef} className={show ? 'habilidades-overlay overlay-fade-in' : 'habilidades-overlay'}>
-                <div className="flex-overlay">
-                    <img src={elipse} alt="" className="elipse-2" />
-                    <section className="habilidades-mobile">
-                        <button
-                            className={activeButton === 'frontend' ? 'active' : ''}
-                            onClick={() => handleClick('frontend')}
-                        >
-                            Frontend
-                        </button>
-                        <button
-                            className={activeButton === 'backend' ? 'active' : ''}
-                            onClick={() => handleClick('backend')}
-                        >
-                            Backend
-                        </button>
-                        <button
-                            className={activeButton === 'banco' ? 'active' : ''}
-                            onClick={() => handleClick('banco')}
-                        >
-                            Banco de Dados
-                        </button>
-                        <button
-                            className={activeButton === 'devops' ? 'active' : ''}
-                            onClick={() => handleClick('devops')}
-                        >
-                            DevOps &amp; Infra
-                        </button>
-                        <button
-                            className={activeButton === 'toolset' ? 'active' : ''}
-                            onClick={() => handleClick('toolset')}
-                        >
-                            Toolset
-                        </button>
-                    </section>
-                    <section className="habilidades-card-background-mobile">
-                        <TransitionGroup component={null}>
-                            {activeButton === 'frontend' && (
-                                <CSSTransition
-                                    key="frontend"
-                                    timeout={500}
-                                    classNames="fade"
-                                    nodeRef={secondRef}
-                                >
-                                    <section ref={secondRef} className={`habilidades-card-mobile ${activeButton === 'frontend' ? 'habilidades-card-mobile-active' : ''}`}>
-                                        <div className="habilidades-div-mobile">
-                                            <img src={html} alt="" className="icon-size-mobile" />
-                                            <h3>HTML</h3>
-                                        </div>
-                                        <div className="habilidades-div-mobile">
-                                            <img src={css} alt="" className="icon-size-mobile" />
-                                            <h3>CSS</h3>
-                                        </div>
-                                        <div className="habilidades-div-mobile">
-                                            <img src={js} alt="" className="icon-size-mobile" />
-                                            <h3>Javascript</h3>
-                                        </div>
-                                        <div className="habilidades-div-mobile">
-                                            <img src={react} alt="" className="icon-size-mobile" />
-                                            <h3>React</h3>
-                                        </div>
-                                        <div className="habilidades-div-mobile">
-                                            <img src={node} alt="" className="icon-size-mobile" />
-                                            <h3>NodeJS</h3>
-                                        </div>
-                                        <div className="habilidades-div-mobile">
-                                            <img src={vite} alt="" className="icon-size-mobile" />
-                                            <h3>Vite</h3>
-                                        </div>
-                                    </section>
-                                </CSSTransition>
-                            )}
 
-                            {activeButton === 'backend' && (
-                                <CSSTransition
-                                    key="backend"
-                                    timeout={500}
-                                    classNames="fade"
-                                    nodeRef={thirdRef}
-                                >
-                                    <section ref={thirdRef} className={`habilidades-card-mobile ${activeButton === 'backend' ? 'habilidades-card-mobile-active' : ''}`}>
-                                        <div className="habilidades-div-mobile">
-                                            <img src={python} alt="" className="icon-size-mobile" />
-                                            <h3>Python</h3>
-                                        </div>
-                                        <div className="habilidades-div-mobile">
-                                            <img src={flask} alt="" className="icon-size-mobile" />
-                                            <h3>Flask</h3>
-                                        </div>
-                                        <div className="habilidades-div-mobile">
-                                            <img src={fast} alt="" className="icon-size-mobile" />
-                                            <h3>FastAPI</h3>
-                                        </div>
-                                    </section>
-                                </CSSTransition>
-                            )}
+            <img src={elipse} alt="" className="elipse-2" />
+            <div className="flex-overlay">
+                <section className="habilidades-mobile">
+                    <button
+                        className={activeButton === 'frontend' ? 'active' : ''}
+                        onClick={() => handleClick('frontend')}
+                    >
+                        Frontend
+                    </button>
+                    <button
+                        className={activeButton === 'backend' ? 'active' : ''}
+                        onClick={() => handleClick('backend')}
+                    >
+                        Backend
+                    </button>
+                    <button
+                        className={activeButton === 'banco' ? 'active' : ''}
+                        onClick={() => handleClick('banco')}
+                    >
+                        Banco de Dados
+                    </button>
+                    <button
+                        className={activeButton === 'devops' ? 'active' : ''}
+                        onClick={() => handleClick('devops')}
+                    >
+                        DevOps &amp; Infra
+                    </button>
+                    <button
+                        className={activeButton === 'toolset' ? 'active' : ''}
+                        onClick={() => handleClick('toolset')}
+                    >
+                        Toolset
+                    </button>
+                </section>
+                <section className="habilidades-card-background-mobile">
+                    <TransitionGroup component={null}>
+                        {activeButton === 'frontend' && (
+                            <CSSTransition
+                                key="frontend"
+                                timeout={500}
+                                classNames="fade"
+                                nodeRef={secondRef}
+                            >
+                                <section ref={secondRef} className={`habilidades-card-mobile ${activeButton === 'frontend' ? 'habilidades-card-mobile-active' : ''}`}>
+                                    <div className="habilidades-div-mobile">
+                                        <img src={html} alt="" className="icon-size-mobile" />
+                                        <h3>HTML</h3>
+                                    </div>
+                                    <div className="habilidades-div-mobile">
+                                        <img src={css} alt="" className="icon-size-mobile" />
+                                        <h3>CSS</h3>
+                                    </div>
+                                    <div className="habilidades-div-mobile">
+                                        <img src={js} alt="" className="icon-size-mobile" />
+                                        <h3>Javascript</h3>
+                                    </div>
+                                    <div className="habilidades-div-mobile">
+                                        <img src={react} alt="" className="icon-size-mobile" />
+                                        <h3>React</h3>
+                                    </div>
+                                    <div className="habilidades-div-mobile">
+                                        <img src={node} alt="" className="icon-size-mobile" />
+                                        <h3>NodeJS</h3>
+                                    </div>
+                                    <div className="habilidades-div-mobile">
+                                        <img src={vite} alt="" className="icon-size-mobile" />
+                                        <h3>Vite</h3>
+                                    </div>
+                                </section>
+                            </CSSTransition>
+                        )}
 
-                            {activeButton === 'banco' && (
-                                <CSSTransition
-                                    key="banco"
-                                    timeout={500}
-                                    classNames="fade"
-                                    nodeRef={fourthRef}
-                                >
-                                    <section ref={fourthRef} className={`habilidades-card-mobile ${activeButton === 'banco' ? 'habilidades-card-mobile-active' : ''}`}>
-                                        <div className="habilidades-div-mobile">
-                                            <img src={postgre} alt="" className="icon-size-mobile" />
-                                            <h3>PostgreSQL</h3>
-                                        </div>
-                                        <div className="habilidades-div-mobile">
-                                            <img src={sqla} alt="" className="icon-size-mobile" />
-                                            <h3>SQLAlchemy</h3>
-                                        </div>
-                                    </section>
-                                </CSSTransition>
-                            )}
+                        {activeButton === 'backend' && (
+                            <CSSTransition
+                                key="backend"
+                                timeout={500}
+                                classNames="fade"
+                                nodeRef={thirdRef}
+                            >
+                                <section ref={thirdRef} className={`habilidades-card-mobile ${activeButton === 'backend' ? 'habilidades-card-mobile-active' : ''}`}>
+                                    <div className="habilidades-div-mobile">
+                                        <img src={python} alt="" className="icon-size-mobile" />
+                                        <h3>Python</h3>
+                                    </div>
+                                    <div className="habilidades-div-mobile">
+                                        <img src={flask} alt="" className="icon-size-mobile" />
+                                        <h3>Flask</h3>
+                                    </div>
+                                    <div className="habilidades-div-mobile">
+                                        <img src={fast} alt="" className="icon-size-mobile" />
+                                        <h3>FastAPI</h3>
+                                    </div>
+                                </section>
+                            </CSSTransition>
+                        )}
 
-                            {activeButton === 'devops' && (
-                                <CSSTransition
-                                    key="devops"
-                                    timeout={500}
-                                    classNames="fade"
-                                    nodeRef={fifthRef}
-                                >
-                                    <section ref={fifthRef} className={`habilidades-card-mobile ${activeButton === 'devops' ? 'habilidades-card-mobile-active' : ''}`}>
-                                        <div className="habilidades-div-mobile">
-                                            <img src={aws} alt="" className="icon-size-mobile" />
-                                            <h3>Amazon Web Services</h3>
-                                        </div>
-                                        <div className="habilidades-div-mobile">
-                                            <img src={apache} alt="" className="icon-size-mobile" />
-                                            <h3>Apache</h3>
-                                        </div>
-                                        <div className="habilidades-div-mobile">
-                                            <img src={arduino} alt="" className="icon-size-mobile" />
-                                            <h3>Arduino</h3>
-                                        </div>
-                                        <div className="habilidades-div-mobile">
-                                            <img src={rasp} alt="" className="icon-size-mobile" />
-                                            <h3>Raspberry Pi</h3>
-                                        </div>
-                                    </section>
-                                </CSSTransition>
-                            )}
+                        {activeButton === 'banco' && (
+                            <CSSTransition
+                                key="banco"
+                                timeout={500}
+                                classNames="fade"
+                                nodeRef={fourthRef}
+                            >
+                                <section ref={fourthRef} className={`habilidades-card-mobile ${activeButton === 'banco' ? 'habilidades-card-mobile-active' : ''}`}>
+                                    <div className="habilidades-div-mobile">
+                                        <img src={postgre} alt="" className="icon-size-mobile" />
+                                        <h3>PostgreSQL</h3>
+                                    </div>
+                                    <div className="habilidades-div-mobile">
+                                        <img src={sqla} alt="" className="icon-size-mobile" />
+                                        <h3>SQLAlchemy</h3>
+                                    </div>
+                                </section>
+                            </CSSTransition>
+                        )}
 
-                            {activeButton === 'toolset' && (
-                                <CSSTransition
-                                    key="toolset"
-                                    timeout={500}
-                                    classNames="fade"
-                                    nodeRef={sixthRef}
-                                >
-                                    <section ref={sixthRef} className={`habilidades-card-mobile ${activeButton === 'toolset' ? 'habilidades-card-mobile-active' : ''}`}>
-                                        <div className="habilidades-div-mobile">
-                                            <img src={git} alt="" className="icon-size-mobile" />
-                                            <h3>Git</h3>
-                                        </div>
-                                        <div className="habilidades-div-mobile">
-                                            <img src={github} alt="" className="icon-size-mobile" />
-                                            <h3>GitHub</h3>
-                                        </div>
-                                        <div className="habilidades-div-mobile">
-                                            <img src={post} alt="" className="icon-size-mobile" />
-                                            <h3>Postman</h3>
-                                        </div>
-                                        <div className="habilidades-div-mobile">
-                                            <img src={vs} alt="" className="icon-size-mobile" />
-                                            <h3>VSCode</h3>
-                                        </div>
-                                        <div className="habilidades-div-mobile">
-                                            <img src={vbox} alt="" className="icon-size-mobile" />
-                                            <h3>Virtual Box</h3>
-                                        </div>
-                                        <div className="habilidades-div-mobile">
-                                            <img src={ubuntu} alt="" className="icon-size-mobile" />
-                                            <h3>Ubuntu</h3>
-                                        </div>
-                                    </section>
-                                </CSSTransition>
-                            )}
+                        {activeButton === 'devops' && (
+                            <CSSTransition
+                                key="devops"
+                                timeout={500}
+                                classNames="fade"
+                                nodeRef={fifthRef}
+                            >
+                                <section ref={fifthRef} className={`habilidades-card-mobile ${activeButton === 'devops' ? 'habilidades-card-mobile-active' : ''}`}>
+                                    <div className="habilidades-div-mobile">
+                                        <img src={aws} alt="" className="icon-size-mobile" />
+                                        <h3>Amazon Web Services</h3>
+                                    </div>
+                                    <div className="habilidades-div-mobile">
+                                        <img src={apache} alt="" className="icon-size-mobile" />
+                                        <h3>Apache</h3>
+                                    </div>
+                                    <div className="habilidades-div-mobile">
+                                        <img src={arduino} alt="" className="icon-size-mobile" />
+                                        <h3>Arduino</h3>
+                                    </div>
+                                    <div className="habilidades-div-mobile">
+                                        <img src={rasp} alt="" className="icon-size-mobile" />
+                                        <h3>Raspberry Pi</h3>
+                                    </div>
+                                </section>
+                            </CSSTransition>
+                        )}
+
+                        {activeButton === 'toolset' && (
+                            <CSSTransition
+                                key="toolset"
+                                timeout={500}
+                                classNames="fade"
+                                nodeRef={sixthRef}
+                            >
+                                <section ref={sixthRef} className={`habilidades-card-mobile ${activeButton === 'toolset' ? 'habilidades-card-mobile-active' : ''}`}>
+                                    <div className="habilidades-div-mobile">
+                                        <img src={git} alt="" className="icon-size-mobile" />
+                                        <h3>Git</h3>
+                                    </div>
+                                    <div className="habilidades-div-mobile">
+                                        <img src={github} alt="" className="icon-size-mobile" />
+                                        <h3>GitHub</h3>
+                                    </div>
+                                    <div className="habilidades-div-mobile">
+                                        <img src={post} alt="" className="icon-size-mobile" />
+                                        <h3>Postman</h3>
+                                    </div>
+                                    <div className="habilidades-div-mobile">
+                                        <img src={vs} alt="" className="icon-size-mobile" />
+                                        <h3>VSCode</h3>
+                                    </div>
+                                    <div className="habilidades-div-mobile">
+                                        <img src={vbox} alt="" className="icon-size-mobile" />
+                                        <h3>Virtual Box</h3>
+                                    </div>
+                                    <div className="habilidades-div-mobile">
+                                        <img src={ubuntu} alt="" className="icon-size-mobile" />
+                                        <h3>Ubuntu</h3>
+                                    </div>
+                                </section>
+                            </CSSTransition>
+                        )}
 
 
-                        </TransitionGroup>
-                    </section>
-                </div>
+                    </TransitionGroup>
+                </section>
             </div>
-        </CSSTransition>
+        </div>
     );
 };
 
