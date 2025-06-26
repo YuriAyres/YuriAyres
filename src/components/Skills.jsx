@@ -90,7 +90,7 @@ const Skills = ({ onClose }) => {
             classNames="habilidades-overlay-fade"
             unmountOnExit
             onExited={handleExited}
-            nodeRef={firstRef}
+            nodeRef={swipeRightRef}
         >
             <div ref={swipeRightRef} className={show ? 'habilidades-overlay overlay-fade-in' : 'habilidades-overlay'}>
                 <div className="flex-overlay">
