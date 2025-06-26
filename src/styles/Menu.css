@@ -780,7 +780,7 @@
     min-width: 0px;
   }
 
-  .overlay-mobile-elipse {
+  .elipse {
     align-items: center;
     display: flex;
     position: absolute;

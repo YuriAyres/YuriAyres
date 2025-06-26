@@ -197,6 +197,41 @@ function Menu({ buttonClicked }) {
     }
   }
 
+  const swipeLeftRef = useRef(null);
+
+  useEffect(() => {
+    let startX = 0;
+
+    const handleTouchStart = (e) => {
+      startX = e.touches[0].clientX;
+    };
+
+    const handleTouchEnd = (e) => {
+      const endX = e.changedTouches[0].clientX;
+      const deltaX = startX - endX;
+
+      // Swipe para esquerda
+      if (deltaX > 50) {
+        openOverlay();
+      }
+    };
+
+    const el = swipeLeftRef.current;
+    if (el) {
+      el.addEventListener('touchstart', handleTouchStart);
+      el.addEventListener('touchend', handleTouchEnd);
+    }
+
+    return () => {
+      if (el) {
+        el.removeEventListener('touchstart', handleTouchStart);
+        el.removeEventListener('touchend', handleTouchEnd);
+      }
+    };
+  }, []);
+
+
+
 
 
   return (
@@ -238,8 +273,8 @@ function Menu({ buttonClicked }) {
                         </div>
                       </div>
                     )}
-                    <div className="overlay-mobile-elipse">
-                      <img src={elipse} alt="" className="elipse" onClick={openOverlay} />
+                    <div ref={swipeLeftRef} className="elipse touch-zone">
+                      <img src={elipse} alt="" className="elipse" />
                     </div>
                   </section>
                 </div>

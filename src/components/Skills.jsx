@@ -30,12 +30,12 @@ import { CSSTransition, TransitionGroup } from 'react-transition-group';
 const Skills = ({ onClose }) => {
     const [activeButton, setActiveButton] = useState('frontend');
     const [show, setShow] = useState(true);
-    const firstRef = useRef(null); 
-    const secondRef = useRef(null); 
-    const thirdRef = useRef(null); 
-    const fourthRef = useRef(null); 
-    const fifthRef = useRef(null); 
-    const sixthRef = useRef(null); 
+    const firstRef = useRef(null);
+    const secondRef = useRef(null);
+    const thirdRef = useRef(null);
+    const fourthRef = useRef(null);
+    const fifthRef = useRef(null);
+    const sixthRef = useRef(null);
 
     const handleClick = (buttonId) => {
         setActiveButton(buttonId);
@@ -49,6 +49,40 @@ const Skills = ({ onClose }) => {
         onClose();
     };
 
+    const swipeRightRef = useRef(null);
+
+    React.useEffect(() => {
+        let startX = 0;
+
+        const handleTouchStart = (e) => {
+            startX = e.touches[0].clientX;
+        };
+
+        const handleTouchEnd = (e) => {
+            const endX = e.changedTouches[0].clientX;
+            const deltaX = endX - startX;
+
+            // Swipe para direita
+            if (deltaX > 50) {
+                setShow(false); // ativa animação de saída
+            }
+        };
+
+        const el = swipeRightRef.current;
+        if (el) {
+            el.addEventListener('touchstart', handleTouchStart);
+            el.addEventListener('touchend', handleTouchEnd);
+        }
+
+        return () => {
+            if (el) {
+                el.removeEventListener('touchstart', handleTouchStart);
+                el.removeEventListener('touchend', handleTouchEnd);
+            }
+        };
+    }, []);
+
+
     return (
         <CSSTransition
             in={show}
@@ -58,7 +92,7 @@ const Skills = ({ onClose }) => {
             onExited={handleExited}
             nodeRef={firstRef}
         >
-            <div  ref={firstRef} className={show ? 'habilidades-overlay overlay-fade-in' : 'habilidades-overlay'}>
+            <div ref={swipeRightRef} className={show ? 'habilidades-overlay overlay-fade-in' : 'habilidades-overlay'}>
                 <div className="flex-overlay">
                     <img src={elipse} alt="" className="elipse-2" onClick={handleClose} />
                     <section className="habilidades-mobile">
