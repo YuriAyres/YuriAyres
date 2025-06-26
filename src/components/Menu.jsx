@@ -222,22 +222,26 @@ function Menu({ buttonClicked }) {
                       <h1 className="nome ">Yuri Ayres de Paula</h1>
                     </div>
                   </section>
-                  {showTitulo && (
-                    <section className={`titulo_pagina ${TextIntroisVisible ? "fade-in" : "fade-out"}`}>
-                      <h2 className="titulo">
-                        {splitTextIntoSpans("Seja bem-vindo!")}
-                      </h2>
-                      <div className="div-sub">
-                        <h4 className="subtitulo">
-                          {splitTextIntoSpans("Você pode avaliar minhas habilidades técnicas aqui")}
-                        </h4>
-                        <div className="overlay-mobile-elipse">
+                  <section className="titulo_pagina">
+                    {showTitulo && (
+                      <div className={`div-titulo ${TextIntroisVisible ? "fade-in" : "fade-out"}`}>
+                        <h2 className="titulo">
+                          {splitTextIntoSpans("Seja bem-vindo!")}
+                        </h2>
+                        <div className="div-sub">
+                          <h4 className="subtitulo">
+                            {splitTextIntoSpans("Você pode avaliar minhas habilidades técnicas aqui")}
+                          </h4>
+
                           <img src={flecha} alt="" className={`icon-flecha ${animateArrow ? 'animate-arrow' : ''}`} />
-                          <img src={elipse} alt="" className="elipse" onClick={openOverlay} />
+
                         </div>
                       </div>
-                    </section>
-                  )}
+                    )}
+                    <div className="overlay-mobile-elipse">
+                      <img src={elipse} alt="" className="elipse" onClick={openOverlay} />
+                    </div>
+                  </section>
                 </div>
                 <div className={`projetos-div ${isOverlayOpen ? 'projetos-div-null' : ''}`}>
                   <section className="projetos-card">

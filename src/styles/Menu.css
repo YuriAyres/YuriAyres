@@ -1241,12 +1241,12 @@
   margin-left: auto;
 }
 
-.titulo_pagina {
+.div-titulo {
   opacity: 1;
   transition: opacity 0.5s ease;
 }
 
-.titulo_pagina.fade-out {
+.div-titulo.fade-out {
   opacity: 0;
 }
 
