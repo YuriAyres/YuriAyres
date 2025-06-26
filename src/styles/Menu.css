@@ -148,12 +148,16 @@
 .icon-flecha {
   width: 48px;
   height: 48px;
+  opacity: 0;
+  transition: opacity 1000ms ease;
 }
 
 .icon-flecha2 {
   transform: rotate(180deg);
   width: 48px;
   height: 48px;
+  opacity: 0;
+  transition: opacity 1000ms ease;
 }
 
 .icon-flecha3 {
@@ -1243,5 +1247,14 @@
 }
 
 .titulo_pagina.fade-out {
+  opacity: 0;
+}
+
+.div-sub-2 {
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+
+.div-sub-2.fade-out {
   opacity: 0;
 }

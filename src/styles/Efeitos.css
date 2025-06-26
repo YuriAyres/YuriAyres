@@ -88,10 +88,12 @@
 }
 
 .animate-arrow {
+  opacity: 1;
   animation: vibrar 1s ease-in-out 2;
 }
 
 .animate-arrow-2 {
+  opacity: 1;
   animation: vibrar2 1s ease-in-out 2;
 }
 

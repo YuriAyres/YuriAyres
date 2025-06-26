@@ -66,6 +66,10 @@ function Menu({ buttonClicked }) {
           setTextIntroIsVisible(false);
         }, 7000);
 
+        setTimeout(() => {
+          setTextIntro2IsVisible(false);
+        }, 8500);
+
       }, delay);
 
       return () => clearTimeout(timeoutId);
@@ -173,11 +177,22 @@ function Menu({ buttonClicked }) {
 
   const [TextIntroisVisible, setTextIntroIsVisible] = useState(true);
 
+  const [showTitulo2, setShowTitulo2] = useState(true);
+
+  const [TextIntro2isVisible, setTextIntro2IsVisible] = useState(true);
+
   function startHideAnimation() {
     if (textIntroIsVisible === false) {
 
       setTimeout(() => {
         setShowTitulo(false);
+      }, 500);
+    }
+
+    if (textIntro2IsVisible === false) {
+
+      setTimeout(() => {
+        setShowTitulo2(false);
       }, 500);
     }
   }
@@ -250,13 +265,16 @@ function Menu({ buttonClicked }) {
                       </div>
                     )}
                   </section>
-                  <div className="div-sub-2">
-                    <img src={flecha} alt="" className={`icon-flecha2 ${animateArrow2 ? 'animate-arrow-2' : ''}`} />
-                    <h4 className="subtitulo">
-                      {splitTextIntoSpans("Conheça um pouco mais sobre meus projetos")}
-                    </h4>
-                  </div>
+                  {showTitulo2 && (
+                    <div className={`div-sub-2 ${TextIntro2isVisible ? "fade-in" : "fade-out"}`}>
+                      <img src={flecha} alt="" className={`icon-flecha2 ${animateArrow2 ? 'animate-arrow-2' : ''}`} />
+                      <h4 className="subtitulo">
+                        {splitTextIntoSpans("Conheça um pouco mais sobre meus projetos")}
+                      </h4>
+                    </div>
+                  )}
                 </div>
+
               </div>
               <div className="div_habilidades">
                 <section className="habilidades">
