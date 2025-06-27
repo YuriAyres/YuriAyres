@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef} from 'react';
 import github from '../assets/icons/github-original.svg';
 import html from '../assets/icons/html5-original.svg';
 import css from '../assets/icons/css3-original.svg';

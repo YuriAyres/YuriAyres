@@ -28,7 +28,6 @@ import post from '../assets/icons/postman-original.svg';
 import vs from '../assets/icons/vscode-original.svg';
 import vbox from '../assets/icons/virtualbox_logo.svg';
 import ubuntu from '../assets/icons/ubuntu-original.svg';
-import elipse from '../assets/img/elipse1.png';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { gsap } from 'gsap';
 import Ticker from './Ticker';
@@ -227,10 +226,8 @@ function Menu({ buttonClicked }) {
 
       if (overlayOffset < threshold) {
         setOverlayOffset(0); // abre completamente
-        setIsOverlayOpen(true);
       } else {
         setOverlayOffset(window.innerWidth - elipseLargura); // fecha (só mostra a elipse)
-        setIsOverlayOpen(false);
       }
     };
 

@@ -33,6 +33,7 @@
 .flex {
   display: flex;
   z-index: 2;
+  min-height: 100vh;
 }
 
 .flex-column {
@@ -585,13 +586,6 @@
   }
 
   @media screen and (max-height: 720px) {
-    .fade-exit {
-      transform: translateY(-40px);
-    }
-
-    .fade-exit-active {
-      transform: translateY(20px);
-    }
 
     @media screen and (max-height: 650px) {
 
@@ -958,6 +952,25 @@
 
   .habilidades-card-mobile-active {
     opacity: 1;
+  }
+
+  .fade-enter {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  .fade-enter-active {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 500ms ease, transform 500ms ease;
+  }
+
+  .fade-exit {
+    opacity: 1;
+  }
+
+  .fade-exit-active {
+    opacity: 0;
   }
 
   .icon-size-mobile {
