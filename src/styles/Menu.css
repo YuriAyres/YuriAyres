@@ -1242,11 +1242,19 @@
 }
 
 .habilidades-overlay {
-  position: fixed;
-  top: 0;
-  width: 100vw;
-  height: 100vh;
-  z-index: 1000;
-  touch-action: pan-y;
-  display: flex;
+  display: none;
+}
+
+@media screen and (max-width: 1023px) {
+
+  .habilidades-overlay {
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1000;
+    touch-action: pan-y;
+    display: flex;
+  }
+
 }
