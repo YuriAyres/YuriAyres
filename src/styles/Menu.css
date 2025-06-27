@@ -879,13 +879,36 @@
 
   .habilidades-mobile {
     margin-top: 195px;
-    width: 200px;
     height: 440px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    margin-right: 10px;
     margin-left: 30px;
+    background-color: #F2F2F2;
+    border-radius: 10px 0 0 10px;
+    align-items: center;
+  }
+
+  .habilidades-mobile button:not(.active) {
+    color: RGB(0, 0, 0, 0.5);
+  }
+
+  .habilidades-mobile div {
+    position: relative;
+  }
+
+  .habilidades-mobile div:not(:first-child)::before {
+    content: "";
+    position: absolute;
+    top: -7px;
+    left: 10%;
+    width: 80%;
+    height: 2px;
+    background: linear-gradient(to right,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0.5) 25%,
+        rgba(0, 0, 0, 0.5) 75%,
+        rgba(0, 0, 0, 0) 100%);
   }
 
   .habilidades-mobile button {
@@ -898,6 +921,8 @@
     font-weight: 600;
     font-style: normal;
     font-size: 16px;
+    background-color: transparent;
+    transition: transform 0.3s ease;
 
   }
 
@@ -905,24 +930,12 @@
   .habilidades-mobile button.active {
     width: 120px;
     height: 75px;
-    background: linear-gradient(darkblue 0%, #5b0564 100%);
-    color: white;
+    color: black;
     text-shadow: 0 0 15px white;
-    font-size: 20px;
-    filter: drop-shadow(10px 8px 2px RGB(0, 0, 0, 1));
   }
 
-  .habilidades-mobile button.active:hover {
-    background-color: #420449;
-  }
-
-  .habilidades-mobile button:not(.active) {
-    background-color: RGB(255, 255, 255, 0.06);
-    color: white;
-  }
-
-  .habilidades-mobile button:not(.active):hover {
-    background-color: RGB(255, 255, 255, 0.2);
+  .habilidades-mobile button:hover {
+    transform: scale(1.1);
   }
 
   .habilidades-card-background-mobile {
@@ -1164,20 +1177,6 @@
     @media screen and (max-width: 400px) {
       .habilidades-div-mobile {
         font-size: 12px;
-      }
-
-      .habilidades-mobile button {
-        width: 80px;
-        font-size: 14px;
-      }
-
-      .habilidades-mobile button.active {
-        width: 100px;
-        font-size: 18px;
-      }
-
-      .habilidades-mobile {
-        margin-right: 20px;
       }
 
     }

@@ -53,38 +53,50 @@ const Skills = ({ overlayOffset, swipeLeftRef }) => {
 
             <img src={elipse} alt="" className="elipse-2" />
             <div className="flex-overlay">
-                <section className="habilidades-mobile">
-                    <button
-                        className={activeButton === 'frontend' ? 'active' : ''}
-                        onClick={() => handleClick('frontend')}
-                    >
-                        Frontend
-                    </button>
-                    <button
-                        className={activeButton === 'backend' ? 'active' : ''}
-                        onClick={() => handleClick('backend')}
-                    >
-                        Backend
-                    </button>
-                    <button
-                        className={activeButton === 'banco' ? 'active' : ''}
-                        onClick={() => handleClick('banco')}
-                    >
-                        Banco de Dados
-                    </button>
-                    <button
-                        className={activeButton === 'devops' ? 'active' : ''}
-                        onClick={() => handleClick('devops')}
-                    >
-                        DevOps &amp; Infra
-                    </button>
-                    <button
-                        className={activeButton === 'toolset' ? 'active' : ''}
-                        onClick={() => handleClick('toolset')}
-                    >
-                        Toolset
-                    </button>
-                </section>
+                <div className="habilidades-mobile-div">
+                    <section className="habilidades-mobile">
+                        <div>
+                            <button
+                                className={activeButton === 'frontend' ? 'active' : ''}
+                                onClick={() => handleClick('frontend')}
+                            >
+                                Frontend
+                            </button>
+                        </div>
+                        <div>
+                            <button
+                                className={activeButton === 'backend' ? 'active' : ''}
+                                onClick={() => handleClick('backend')}
+                            >
+                                Backend
+                            </button>
+                        </div>
+                        <div>
+                            <button
+                                className={activeButton === 'banco' ? 'active' : ''}
+                                onClick={() => handleClick('banco')}
+                            >
+                                Banco de Dados
+                            </button>
+                        </div>
+                        <div>
+                            <button
+                                className={activeButton === 'devops' ? 'active' : ''}
+                                onClick={() => handleClick('devops')}
+                            >
+                                DevOps &amp; Infra
+                            </button>
+                        </div>
+                        <div>
+                            <button
+                                className={activeButton === 'toolset' ? 'active' : ''}
+                                onClick={() => handleClick('toolset')}
+                            >
+                                Toolset
+                            </button>
+                        </div>
+                    </section>
+                </div>
                 <section className="habilidades-card-background-mobile">
                     <TransitionGroup component={null}>
                         {activeButton === 'frontend' && (
