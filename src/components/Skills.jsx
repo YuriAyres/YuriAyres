@@ -47,7 +47,6 @@ const Skills = ({ overlayOffset, swipeLeftRef }) => {
             style={{
                 transform: `translateX(${overlayOffset}px)`,
                 transition: 'transform 0.3s ease',
-                touchAction: 'none', // ajuda a prevenir comportamento estranho no arrasto
             }}
         >
 
