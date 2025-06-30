@@ -76,7 +76,7 @@
 }
 
 .card_carregando {
-  background-color: rgb(255, 255, 255);
+
   margin-top: 190px;
   margin-left: 5%;
   width: 90%;
@@ -85,7 +85,7 @@
 
 .word {
   bottom: 0;
-  color: #fff;
+  color: #000000;
   font-size: 2.0em;
   height: 2.5em;
   left: 0;
@@ -112,23 +112,9 @@
 }
 
 .overlay_div {
-  top: -270px;
+  top: -250px;
   position: relative;
   width: 100%;
-}
-
-.overlay {
-  background-image: linear-gradient(transparent 0%, rgba(10, 16, 10, 0.5) 50%);
-  background-size: 1000px 2px;
-  bottom: 190px;
-  content: '';
-  left: 0;
-  position: absolute;
-  right: 0;
-  top: 190px;
-  height: 80px;
-  width: 100%;
-  border-radius: 20px;
 }
 
 @media screen and (min-width: 1024px) and (max-width: 1615px) {
@@ -136,16 +122,8 @@
 
   @media screen and (max-width: 1380px) {
 
-    .overlay_div {
-      top: -250px;
-    }
-
     .word {
       font-size: 1.5em;
-    }
-
-    .overlay {
-      height: 60px;
     }
 
   }
