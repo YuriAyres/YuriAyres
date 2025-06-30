@@ -1279,14 +1279,6 @@
   }
 }
 
-@media screen and (max-height: 767px) {
-
-  .projetos-div {
-    margin-bottom: 0;
-  }
-
-}
-
 @media screen and (max-width: 380px) {
 
   .habilidades-mobile {
@@ -1357,4 +1349,12 @@
   width: 100%;
   display: flex;
   justify-content: center;
+}
+
+@media screen and (max-width:1024) {
+
+  .projetos-div {
+    margin-bottom: 50px;
+  }
+  
 }
