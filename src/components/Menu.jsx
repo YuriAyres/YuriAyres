@@ -288,6 +288,15 @@ function Menu({ buttonClicked }) {
     setScrollProgress(progress);
   };
 
+  useEffect(() => {
+    // Espera o DOM atualizar os repositórios renderizados
+    const timeout = setTimeout(() => {
+      handleScroll();
+    }, 0);
+
+    return () => clearTimeout(timeout);
+  }, [repos]);
+
 
 
 
@@ -372,11 +381,13 @@ function Menu({ buttonClicked }) {
                     )}
                   </section>
                   {showTitulo2 && (
-                    <div className={`div-sub-2 ${TextIntro2IsVisible ? "fade-in" : "fade-out"}`}>
-                      <img src={flecha} alt="" className={`icon-flecha2 ${animateArrow2 ? 'animate-arrow-2' : ''}`} />
-                      <h4 className="subtitulo">
-                        {splitTextIntoSpans("Conheça um pouco mais sobre meus projetos")}
-                      </h4>
+                    <div className="div-centralizar">
+                      <div className={`div-sub-2 ${TextIntro2IsVisible ? "fade-in" : "fade-out"}`}>
+                        <img src={flecha} alt="" className={`icon-flecha2 ${animateArrow2 ? 'animate-arrow-2' : ''}`} />
+                        <h4 className="subtitulo">
+                          {splitTextIntoSpans("Conheça um pouco mais sobre meus projetos")}
+                        </h4>
+                      </div>
                     </div>
                   )}
                 </div>

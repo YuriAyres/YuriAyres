@@ -45,28 +45,6 @@
 
 @keyframes vibrar2 {
   0% {
-    transform: translateX(0) rotate(180deg);
-  }
-
-  25% {
-    transform: translateX(5px) rotate(180deg);
-  }
-
-  50% {
-    transform: translateX(-5px) rotate(180deg);
-  }
-
-  75% {
-    transform: translateX(5px) rotate(180deg);
-  }
-
-  100% {
-    transform: translateX(0) rotate(180deg);
-  }
-}
-
-@keyframes vibrar3 {
-  0% {
     transform: translateY(0) rotate(90deg);
   }
 
@@ -96,17 +74,6 @@
   opacity: 1;
   animation: vibrar2 1s ease-in-out 2;
 }
-
-
-@media screen and (max-width: 768px) {
-
-  .animate-arrow-2 {
-    animation: vibrar3 1s ease-in-out 2;
-  }
-}
-
-
-
 
 .card_carregando {
   background-color: rgb(255, 255, 255);

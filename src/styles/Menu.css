@@ -142,6 +142,7 @@
 .div-sub-2 {
   display: flex;
   align-items: center;
+  flex-direction: column-reverse;
   margin-right: 48px;
   min-width: 525px;
 }
@@ -154,17 +155,11 @@
 }
 
 .icon-flecha2 {
-  transform: rotate(180deg);
+  transform: rotate(90deg);
   width: 48px;
   height: 48px;
   opacity: 0;
   transition: opacity 1000ms ease;
-}
-
-.icon-flecha3 {
-  transform: rotate(180deg);
-  width: 48px;
-  height: 48px;
 }
 
 .habilidades {
@@ -305,6 +300,7 @@
   justify-content: space-between;
   position: relative;
   padding-bottom: 1rem;
+  flex-direction: column-reverse;
 }
 
 .repos-slider {
@@ -814,8 +810,6 @@
   }
 
   .div-sub-2 {
-    display: flex;
-    align-items: center;
     margin-right: 48px;
     min-width: 525px;
   }
@@ -867,13 +861,6 @@
 
   .habilidades-card-background {
     display: none;
-  }
-
-  .projetos-div {
-    position: absolute;
-    bottom: 0px;
-    display: flex;
-    flex-direction: column-reverse;
   }
 
   .overlay-fade-in {
@@ -1084,12 +1071,6 @@
       width: 350px;
     }
 
-    .projetos-div {
-      position: absolute;
-      bottom: 0px;
-      flex-direction: row;
-    }
-
     @media screen and (max-width: 880px) {
       .center {
         height: 360px;
@@ -1131,14 +1112,8 @@
     }
 
     .div-sub-2 {
-      display: flex;
-      flex-direction: column-reverse;
       min-width: 0px;
       margin: 0;
-    }
-
-    .icon-flecha2 {
-      transform: rotate(90deg);
     }
 
     .projetos-card {
@@ -1304,22 +1279,7 @@
   }
 }
 
-
-@media screen and (max-width: 1023px) {
-
-  .projetos-div {
-    margin-bottom: 100px;
-  }
-
-}
-
 @media screen and (max-height: 767px) {
-
-  .flex-column {
-
-    justify-content: start;
-
-  }
 
   .projetos-div {
     margin-bottom: 0;
@@ -1361,14 +1321,6 @@
 
 }
 
-@media screen and (max-width:1100px) {
-
-  .projetos-card {
-    max-width: 650px;
-  }
-
-}
-
 .repos-slider.mask-fade {
   -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
   mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
@@ -1399,4 +1351,10 @@
   /* cor da barrinha */
   transition: width 0.2s ease;
   border-radius: 2px;
+}
+
+.div-centralizar {
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
