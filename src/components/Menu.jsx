@@ -82,7 +82,6 @@ function Menu({ buttonClicked }) {
   };
 
   const [repos, setRepos] = useState([]);
-  const [currentRepoIndex, setCurrentRepoIndex] = useState(0);
 
   useEffect(() => {
     const fetchRepos = async () => {
@@ -96,22 +95,6 @@ function Menu({ buttonClicked }) {
 
     fetchRepos();
   }, []);
-
-  const [direction, setDirection] = useState('forward');
-
-  const nextRepo = () => {
-    setCurrentRepoIndex((prevIndex) =>
-      prevIndex === repos.length - 1 ? 0 : prevIndex + 1
-    );
-    setDirection('forward');
-  };
-
-  const prevRepo = () => {
-    setCurrentRepoIndex((prevIndex) =>
-      prevIndex === 0 ? repos.length - 1 : prevIndex - 1
-    );
-    setDirection('backward');
-  };
 
   const textRef = useRef(null);
   const range = 16;
@@ -159,15 +142,9 @@ function Menu({ buttonClicked }) {
 
   const [animateArrow, setAnimateArrow] = useState(false);
   const [animateArrow2, setAnimateArrow2] = useState(false);
-
-  const repoRef = useRef(null);
-
   const [showTitulo, setShowTitulo] = useState(true);
-
   const [TextIntroIsVisible, setTextIntroIsVisible] = useState(true);
-
   const [showTitulo2, setShowTitulo2] = useState(true);
-
   const [TextIntro2IsVisible, setTextIntro2IsVisible] = useState(true);
 
   function startHideAnimation() {
@@ -292,6 +269,26 @@ function Menu({ buttonClicked }) {
     };
   }, [repos]);
 
+  const [scrollProgress, setScrollProgress] = useState(0);
+  const [showProgressBar, setShowProgressBar] = useState(false);
+
+
+  const handleScroll = () => {
+    const slider = reposSliderRef.current;
+    if (!slider) return;
+
+    const scrollLeft = slider.scrollLeft;
+    const maxScrollLeft = slider.scrollWidth - slider.clientWidth;
+
+    // Só mostra a barra se houver conteúdo suficiente para rolagem
+    const shouldShow = slider.scrollWidth > slider.clientWidth;
+    setShowProgressBar(shouldShow);
+
+    const progress = maxScrollLeft > 0 ? (scrollLeft / maxScrollLeft) * 100 : 0;
+    setScrollProgress(progress);
+  };
+
+
 
   return (
     <div translate="no" className="menu-container" style={{ display: buttonClicked ? 'block' : 'none' }}>
@@ -341,16 +338,28 @@ function Menu({ buttonClicked }) {
                 <div className="projetos-div">
                   <section className="projetos-card">
                     {repos.length > 0 ? (
-                      <div className="repos-slider" ref={reposSliderRef}>
-                        {repos.map((repo) => (
-                          <div key={repo.id} className="repo-card">
-                            <img src={repo.image_url} alt={`${repo.name} thumbnail`} className="repo-image" />
-                            <h3>{repo.name}</h3>
-                            <p>{repo.description}</p>
-                            <a href={repo.html_url} target="_blank" rel="noopener noreferrer">Ver repositório</a>
+                      <>
+                        <div className="repos-slider" ref={reposSliderRef} onScroll={handleScroll}>
+                          {repos.map((repo) => (
+                            <div key={repo.id} className="repo-card">
+                              <img src={repo.image_url} alt={`${repo.name} thumbnail`} className="repo-image" />
+                              <h3>{repo.name}</h3>
+                              <p>{repo.description}</p>
+                              <a href={repo.html_url} target="_blank" rel="noopener noreferrer">Ver repositório</a>
+                            </div>
+                          ))}
+                        </div>
+                        {showProgressBar && (
+                          <div className="div-progress-bar">
+                            <div className="progress-bar-container">
+                              <div
+                                className="progress-bar"
+                                style={{ width: `${scrollProgress}%` }}
+                              />
+                            </div>
                           </div>
-                        ))}
-                      </div>
+                        )}
+                      </>
                     ) : (
                       <div className="card_carregando">
                         <Ticker text="Carregando..." />

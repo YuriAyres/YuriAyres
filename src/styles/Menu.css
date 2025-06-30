@@ -603,7 +603,6 @@
   }
 
   .repo-card {
-    margin-top: 60px;
     width: 250px;
   }
 
@@ -660,10 +659,6 @@
       .projetos-card {
         border-radius: 0 100px 0 0;
         ;
-      }
-
-      .repo-card {
-        margin-top: 20px;
       }
 
       .repo-navigation {
@@ -839,7 +834,6 @@
   }
 
   .repo-card {
-    margin-top: 60px;
     width: 250px;
   }
 
@@ -1380,11 +1374,11 @@
   .projetos-card {
     max-width: 650px;
   }
-  
+
 }
 
-.projetos-card::before,
-.projetos-card::after {
+.repos-slider::before,
+.repos-slider::after {
   content: '';
   position: absolute;
   top: 0;
@@ -1394,12 +1388,36 @@
   pointer-events: none;
 }
 
-.projetos-card::before {
+.repos-slider::before {
   left: 0;
   background: linear-gradient(to right, #280348, transparent);
 }
 
-.projetos-card::after {
+.repos-slider::after {
   right: 0;
   background: linear-gradient(to left, #200933, transparent);
+}
+
+.div-progress-bar {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.progress-bar-container {
+  height: 4px;
+  width: 15%;
+  background-color: rgba(255, 255, 255, 0.2);
+  /* fundo da barra */
+  margin-top: 0.5rem;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  background-color: #ffffff;
+  /* cor da barrinha */
+  transition: width 0.2s ease;
+  border-radius: 2px;
 }
