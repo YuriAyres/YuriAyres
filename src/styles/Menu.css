@@ -1145,6 +1145,7 @@
       max-width: 100%;
       row-gap: 10px;
       position: relative;
+      margin-bottom: 50px;
     }
 
     .repo-fade-backward-exit {
@@ -1349,12 +1350,4 @@
   width: 100%;
   display: flex;
   justify-content: center;
-}
-
-@media screen and (max-width:1024) {
-
-  .projetos-div {
-    margin-bottom: 50px;
-  }
-  
 }
