@@ -164,27 +164,31 @@ function Menu({ buttonClicked }) {
 
   const [showTitulo, setShowTitulo] = useState(true);
 
-  const [TextIntroisVisible, setTextIntroIsVisible] = useState(true);
+  const [TextIntroIsVisible, setTextIntroIsVisible] = useState(true);
 
   const [showTitulo2, setShowTitulo2] = useState(true);
 
-  const [TextIntro2isVisible, setTextIntro2IsVisible] = useState(true);
+  const [TextIntro2IsVisible, setTextIntro2IsVisible] = useState(true);
 
   function startHideAnimation() {
-    if (textIntroIsVisible === false) {
+    if (TextIntroIsVisible === false) {
 
       setTimeout(() => {
         setShowTitulo(false);
       }, 500);
     }
 
-    if (textIntro2IsVisible === false) {
+    if (TextIntro2IsVisible === false) {
 
       setTimeout(() => {
         setShowTitulo2(false);
       }, 500);
     }
   }
+
+  useEffect(() => {
+    startHideAnimation();
+  }, [TextIntroIsVisible, TextIntro2IsVisible]);
 
   const [overlayOffset, setOverlayOffset] = useState(window.innerWidth - 41);
   const swipeLeftRef = useRef(null);
@@ -194,7 +198,7 @@ function Menu({ buttonClicked }) {
   const startX = useRef(0);
 
 
-
+  const reposSliderRef = useRef(null);
 
   useEffect(() => {
 
@@ -242,7 +246,51 @@ function Menu({ buttonClicked }) {
     };
   }, [overlayOffset]);
 
+  useEffect(() => {
+    const slider = reposSliderRef.current;
+    if (!slider) return; // impede erro
 
+    let isDown = false;
+    let startX;
+    let scrollLeft;
+
+    const handleMouseDown = (e) => {
+      isDown = true;
+      startX = e.pageX - slider.offsetLeft;
+      scrollLeft = slider.scrollLeft;
+      slider.classList.add('active');
+    };
+
+    const handleMouseLeave = () => {
+      isDown = false;
+      slider.classList.remove('active');
+    };
+
+    const handleMouseUp = () => {
+      isDown = false;
+      slider.classList.remove('active');
+    };
+
+    const handleMouseMove = (e) => {
+      if (!isDown) return;
+      e.preventDefault();
+      const x = e.pageX - slider.offsetLeft;
+      const walk = (x - startX) * 2;
+      slider.scrollLeft = scrollLeft - walk;
+    };
+
+    slider.addEventListener('mousedown', handleMouseDown);
+    slider.addEventListener('mouseleave', handleMouseLeave);
+    slider.addEventListener('mouseup', handleMouseUp);
+    slider.addEventListener('mousemove', handleMouseMove);
+
+    return () => {
+      slider.removeEventListener('mousedown', handleMouseDown);
+      slider.removeEventListener('mouseleave', handleMouseLeave);
+      slider.removeEventListener('mouseup', handleMouseUp);
+      slider.removeEventListener('mousemove', handleMouseMove);
+    };
+  }, [repos]);
 
 
   return (
@@ -274,7 +322,7 @@ function Menu({ buttonClicked }) {
                   </section>
                   <section className="titulo_pagina">
                     {showTitulo && (
-                      <div className={`div-titulo ${TextIntroisVisible ? "fade-in" : "fade-out"}`}>
+                      <div className={`div-titulo ${TextIntroIsVisible ? "fade-in" : "fade-out"}`}>
                         <h2 className="titulo">
                           {splitTextIntoSpans("Seja bem-vindo!")}
                         </h2>
@@ -293,20 +341,16 @@ function Menu({ buttonClicked }) {
                 <div className="projetos-div">
                   <section className="projetos-card">
                     {repos.length > 0 ? (
-                      <TransitionGroup>
-                        <CSSTransition
-                          key={repos[currentRepoIndex].id}
-                          timeout={500}
-                          classNames={direction === 'forward' ? 'repo-fade-forward' : 'repo-fade-backward'}
-                        >
-                          <div key={repos[currentRepoIndex].id} className="repo-card">
-                            <img src={repos[currentRepoIndex].image_url} alt={`${repos[currentRepoIndex].name} thumbnail`} className="repo-image" />
-                            <h3>{repos[currentRepoIndex].name}</h3>
-                            <p>{repos[currentRepoIndex].description}</p>
-                            <a href={repos[currentRepoIndex].html_url} target="_blank" rel="noopener noreferrer">Ver repositório</a>
+                      <div className="repos-slider" ref={reposSliderRef}>
+                        {repos.map((repo) => (
+                          <div key={repo.id} className="repo-card">
+                            <img src={repo.image_url} alt={`${repo.name} thumbnail`} className="repo-image" />
+                            <h3>{repo.name}</h3>
+                            <p>{repo.description}</p>
+                            <a href={repo.html_url} target="_blank" rel="noopener noreferrer">Ver repositório</a>
                           </div>
-                        </CSSTransition>
-                      </TransitionGroup>
+                        ))}
+                      </div>
                     ) : (
                       <div className="card_carregando">
                         <Ticker text="Carregando..." />
@@ -317,7 +361,7 @@ function Menu({ buttonClicked }) {
                     )}
                   </section>
                   {showTitulo2 && (
-                    <div className={`div-sub-2 ${TextIntro2isVisible ? "fade-in" : "fade-out"}`}>
+                    <div className={`div-sub-2 ${TextIntro2IsVisible ? "fade-in" : "fade-out"}`}>
                       <img src={flecha} alt="" className={`icon-flecha2 ${animateArrow2 ? 'animate-arrow-2' : ''}`} />
                       <h4 className="subtitulo">
                         {splitTextIntoSpans("Conheça um pouco mais sobre meus projetos")}
