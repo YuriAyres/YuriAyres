@@ -282,12 +282,12 @@
 }
 
 .projetos-card {
-  height: 450px;
   padding-bottom: 1rem;
   user-select: none;
   -webkit-user-drag: none;
   -webkit-touch-callout: none;
   -webkit-tap-highlight-color: transparent;
+  position: relative;
 
 }
 
@@ -331,7 +331,7 @@
   min-width: 280px;
   margin-left: 30px;
   flex-shrink: 0;
-  background: #1e1e1e;
+  background: #F2F2F2;
   border-radius: 8px;
   padding: 1rem;
   transition: transform 0.3s ease;
@@ -358,12 +358,12 @@
   font-family: "Krona One", system-ui;
   font-weight: 400;
   font-style: normal;
-  color: #ffffff;
+  color: black;
 }
 
 .repo-card p {
   font-size: 14px;
-  color: #ffffff;
+  color: black;
   font-family: "Montserrat", system-ui;
   font-weight: 400;
   font-style: normal;
@@ -598,10 +598,6 @@
     height: 48px;
   }
 
-  .projetos-card {
-    top: -100px;
-  }
-
   .repo-card {
     width: 250px;
   }
@@ -827,10 +823,6 @@
   .icon-size {
     width: 48px;
     height: 48px;
-  }
-
-  .projetos-card {
-    top: -100px;
   }
 
   .repo-card {
@@ -1377,26 +1369,13 @@
 
 }
 
-.repos-slider::before,
-.repos-slider::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  width: 3rem;
-  height: 100%;
-  z-index: 1;
-  pointer-events: none;
+.repos-slider.mask-fade {
+  -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
 }
 
-.repos-slider::before {
-  left: 0;
-  background: linear-gradient(to right, #280348, transparent);
-}
-
-.repos-slider::after {
-  right: 0;
-  background: linear-gradient(to left, #200933, transparent);
-}
 
 .div-progress-bar {
   width: 100%;

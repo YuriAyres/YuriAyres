@@ -290,6 +290,7 @@ function Menu({ buttonClicked }) {
 
 
 
+
   return (
     <div translate="no" className="menu-container" style={{ display: buttonClicked ? 'block' : 'none' }}>
       <animated.div style={styles}>
@@ -339,7 +340,8 @@ function Menu({ buttonClicked }) {
                   <section className="projetos-card">
                     {repos.length > 0 ? (
                       <>
-                        <div className="repos-slider" ref={reposSliderRef} onScroll={handleScroll}>
+                        <div className={`repos-slider ${showProgressBar ? 'mask-fade' : ''}`} ref={reposSliderRef} onScroll={handleScroll}>
+
                           {repos.map((repo) => (
                             <div key={repo.id} className="repo-card">
                               <img src={repo.image_url} alt={`${repo.name} thumbnail`} className="repo-image" />
